@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحليل الأكاديمي الموجه: نظرية التطور المهني لدونالد سوبر</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #2980b9;
+            --danger-color: #c0392b;
+            --danger-bg: #fdf2f1;
+            --sidebar-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* تخطيط الصفحة والقائمة الجانبية */
+        .layout-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        aside.sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            border-left: 1px solid var(--border-color);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        aside.sidebar h3 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside.sidebar li {
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        aside.sidebar a:hover, aside.sidebar a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        main.content {
+            flex-grow: 1;
+            max-width: 800px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        /* رأس الصفحة الأكاديمي */
+        .academic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .academic-header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .academic-meta {
+            color: #555;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .target-group-badge {
+            background: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95em;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(41, 128, 185, 0.2);
+        }
+
+        /* البطاقة التعريفية للعالم */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-bio h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .profile-bio p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* الصندوق البارز - الأطروحة المركزية */
+        .hero-box {
+            background: linear-gradient(135deg, var(--primary-color), #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-box h2 {
+            color: white;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        /* الإشكال المعرفي */
+        .problem-card {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f4f9fc;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .problem-title svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--accent-color);
+        }
+
+        /* القوائم والحجج */
+        ol.arguments-list {
+            padding-right: 20px;
+        }
+        
+        ol.arguments-list li {
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        /* الفرضيات الضمنية */
+        details {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        summary {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* حدود الطرح */
+        .critiques-section {
+            background-color: var(--danger-bg);
+            border-right: 5px solid var(--danger-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .critiques-section h2 {
+            color: var(--danger-color);
+            margin-top: 0;
+        }
+
+        /* الهندسة التطبيقية (Timeline) */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-right: 30px;
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* الاقتباسات */
+        blockquote {
+            position: relative;
+            background: white;
+            margin: 40px 0;
+            padding: 30px 40px 30px 30px;
+            border-right: 5px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '\201D';
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 150px;
+            color: rgba(44, 62, 80, 0.05);
+            font-family: Georgia, serif;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        blockquote footer {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-family: 'Cairo', sans-serif;
+            font-style: normal;
+        }
+
+        /* التفاعلية: المفاهيم والإحالات */
+        .concept-link {
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: all 0.2s;
+        }
+
+        .concept-link:hover {
+            background-color: rgba(41, 128, 185, 0.1);
+        }
+
+        /* نظام التوثيق الأكاديمي المباشر */
+        .citation {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+
+        /* النافذة المنبثقة (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            font-family: 'Amiri', serif;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+        }
+
+        .modal-title {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .modal-case-study {
+            background: #f4f9fc;
+            border-right: 3px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            aside.sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main.content {
+                padding: 20px;
+            }
+        }
+/* ================= التجاوب مع شاشات الهاتف ================= */
+        @media (max-width: 992px) {
+            .page-container, .layout-wrapper { flex-direction: column; padding: 15px; }
+            .sidebar { width: 100%; position: static; margin-bottom: 20px; }
+            .main-content { max-width: 100%; width: 100%; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 1.05rem; }
+            .profile-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px;}
+            .hero-box { padding: 25px 15px; }
+            .hero-box h2 { font-size: 1.6rem; }
+            .problem-card, .arguments-list li { padding: 15px; }
+            .mermaid-container, .mermaid-wrapper { padding: 5px; overflow-x: scroll; }
+            .academic-quote { padding: 30px 15px 15px 15px; }
+            .academic-quote::before { font-size: 8rem; top: -15px; right: 10px; }
+            .modal-box, .modal-card { width: 95%; }
+            .citation-tooltip::after, .citation::after { width: 260px; left: 50%; transform: translateX(-50%); }
+            .citation-tooltip.active-touch::after, .citation-tooltip.active-touch::before, 
+            .citation.active-touch::after, .citation.active-touch::before { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <h3>محتويات البحث</h3>
+            <ul id="toc-list">
+                <li><a href="#intro">التمهيد والتعريف</a></li>
+                <li><a href="#thesis">الأطروحة المركزية</a></li>
+                <li><a href="#problem">الإشكال المعرفي</a></li>
+                <li><a href="#arguments">الحجج الأساسية</a></li>
+                <li><a href="#hypotheses">الفرضيات الضمنية</a></li>
+                <li><a href="#critiques">التحليل النقدي والحدود</a></li>
+                <li><a href="#map">الخريطة المفاهيمية</a></li>
+                <li><a href="#engineering">الهندسة التطبيقية</a></li>
+                <li><a href="#quotes">اقتباسات مرجعية</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <header class="academic-header">
+                <h1>التحليل الأكاديمي الموجه: نظرية التطور المهني لدونالد سوبر وأثرها في السردية المتجسدة</h1>
+                <div class="academic-meta">
+                    <strong>إعداد:</strong> الطالب الباحث عبد الله العميري<br>
+                    <strong>إشراف:</strong> ذ. حمزة شينبو<br>
+                    <strong>المؤسسة:</strong> سلك الماستر في علم النفس التربوي - كلية علوم التربية بالرباط (السنة الجامعية: 2025-2026)
+                </div>
+                <div class="target-group-badge">
+                    التأطير النظري لبحث نيل دبلوم الماستر
+                </div>
+            </header>
+
+            <section id="intro">
+                <div class="profile-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/No_image_available.svg/120px-No_image_available.svg.png" alt="صورة تمثيلية للعالم دونالد سوبر">
+                    <div class="profile-bio">
+                        <h3>دونالد إي. سوبر (Donald E. Super)</h3>
+                        <p>أستاذ في "كلية الأساتذة" بجامعة كولومبيا وأحد أهم رواد علم النفس المهني في القرن العشرين. يمثل كتابه التأسيسي "علم نفس المسارات المهنية" (1957) القطيعة المعرفية الحاسمة مع مدرسة السمات والعوامل. أسس سوبر لنموذج ينظر إلى التوجيه المهني كعلم يواكب "التطور البشري" على طول دورة الحياة، بدلاً من كونه مجرد فن لمطابقة الأفراد مع الوظائف الشاغرة <span class="citation">(Super, 1957)</span>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="thesis">
+                <div class="hero-box">
+                    <h2>الأطروحة المركزية: المسار المهني كعملية تجسيد وتطوير للذات</h2>
+                    <p>يدافع سوبر عن أطروحة مركزية ترى أن المسار المهني ليس سلسلة من المصادفات أو لحظة قرار معزولة، بل هو محاولة مستمرة وديناميكية من الفرد لتحويل تصوراته الداخلية عن "من يكون" إلى واقع اجتماعي ملموس. الاختيار المهني، إذن، هو في جوهره عملية تهدف إلى "تنفيذ" <span class="concept-link" data-title="مفهوم الذات المهني (Vocational Self-Concept)" data-def="منظومة التصورات التي يمتلكها الفرد عن قدراته، ميوله، وقيمه في سياق العمل." data-details="الاختيار المهني هو محاولة لترجمة هذه الصورة الذاتية الداخلية إلى دور مهني واقعي، لتحقيق التطابق والرضا." data-case="تلميذة ترى في نفسها 'الملاذ الآمن والمسؤولة عن رعاية الآخرين' ستسعى لاختيار مهنة التمريض أو العمل الاجتماعي ليس من أجل الراتب، بل لتنفيذ مفهومها عن ذاتها في المجتمع.">مفهوم الذات المهني</span>.</p>
+                    <p>ينقل سوبر ثقل عملية التوجيه من "الوظيفة" كمعطى ثابت، إلى "الإنسان المتطور عبر الزمن"، مؤكداً أن الرضا المهني يتحقق بقدر ما تتيح المهنة للفرد مساحة لممارسة أدواره التي يتماهى معها <span class="citation">(Super, 1957, pp. 191-192)</span>.</p>
+                </div>
+            </section>
+
+            <section id="problem">
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        <h2 style="margin: 0;">الإشكال المعرفي النظري: غياب البعد الزمني والنمائي</h2>
+                    </div>
+                    <p>جاءت نظرية سوبر كاستجابة مباشرة لمأزق إبستمولوجي عميق عاشه التوجيه المهني المتمثل في "النموذج السكوني" لبارسونز. يمكن تلخيص الإشكال في التساؤل الآتي:</p>
+                    <p style="font-weight: bold; font-size: 1.1em; text-align: center; color: var(--primary-color); margin: 20px 0;">
+                        كيف يمكن تفسير تغيير الأفراد لاهتماماتهم أو فشلهم في مهن "تطابق" ذكاءهم، إذا استمر التوجيه المهني في التعامل مع التلميذ كـ "صورة فوتوغرافية" ثابتة لا كـ "فيلم سينمائي" يتطور؟ <span class="citation">(Super, 1957, p. 167)</span>
+                    </p>
+                    <p>قام سوبر بحل هذا المأزق عبر إدماج "علم نفس النمو" في التوجيه المهني، مؤكداً أن الاختيار ليس تقاطع طرق نقف عنده في سن الثامنة عشرة، بل سيرورة نمائية تتطور عبر الاحتكاك مع الواقع.</p>
+                </div>
+            </section>
+
+            <section id="arguments">
+                <h2>الحجج الأساسية لدعم نظرية التطور المهني</h2>
+                <ol class="arguments-list">
+                    <li>
+                        <strong>حجة "التدرج النمائي" (The Developmental Argument):</strong> اتخاذ القرار المهني يخضع لنفس قوانين النمو البيولوجي والنفسي. المراهق يمر بمرحلة "الاستكشاف"، ومن الخطأ العلمي إجباره على اتخاذ قرار نهائي كأنه في مرحلة "التأسيس". التردد في هذه المرحلة هو ظاهرة صحية تعكس نضجاً قيد التشكل <span class="citation">(Super, 1957, pp. 71-72)</span>.
+                        <br><small style="color: #666;">مثال: لا يُطلب من البذرة أن تثمر في غير أوانها؛ مرحلة الثانوي هي لـ "توسيع خيارات الاستكشاف" وليس لـ "الحسم النهائي".</small>
+                    </li>
+                    <li>
+                        <strong>حجة "لعب الأدوار واختبار الواقع" (Reality Testing):</strong> الفرد لا يكتشف مفهوم ذاته عبر التفكير الصامت المجرد، بل عبر عملية <span class="concept-link" data-title="اختبار الواقع (Reality Testing)" data-def="عملية تجريب مفهوم الذات في مواقف حقيقية أو شبه حقيقية لمعرفة مدى ملاءمتها." data-details="تتم عبر أنشطة مثل لعب الأدوار، النوادي المدرسية، أو الوظائف المؤقتة." data-case="مراهق يتخيل أنه سيصبح محامياً ناجحاً؛ لا يتأكد من ذلك إلا عندما يقف على خشبة مسرح المدرسة ليدافع عن قضية ويختبر قدرته على الإقناع الفعلي.">اختبار الواقع</span> من خلال تقمص الأدوار ومحاكاتها. التجربة الاجتماعية والتمثيلية هي التي تعطي المعنى الحقيقي للمهنة <span class="citation">(Super, 1957, pp. 84-85)</span>.
+                    </li>
+                    <li>
+                        <strong>حجة "الإسقاط المهني":</strong> ينجح الفرد في عمله لأنه يجد في المهنة "شاشة" يسقط عليها قيمه وصورته الذاتية. المهنة الناجحة هي التي تتيح للفرد أن يمارس هويته بشكل علني ومأجور.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="hypotheses">
+                <h2>الفرضيات الإبستمولوجية الضمنية (التحليل الباراديغمي)</h2>
+                
+                <details>
+                    <summary>1. فرضية "الخطية والاستقرار الاقتصادي" (Linearity and Stability)</summary>
+                    <p>يفترض سوبر أن مسار الحياة يتصاعد بانتظام خطي (نمو، استكشاف، تأسيس، صيانة، انحدار) في بيئة اقتصادية مستقرة، متأثراً بالعصر الذهبي للاقتصاد الأمريكي بعد الحرب العالمية الثانية <span class="citation">(Super, 1957, pp. 71-72)</span>.</p>
+                </details>
+                
+                <details>
+                    <summary>2. فرضية "الوكالة العقلانية والرفاهية الطبقية"</summary>
+                    <p>يفترض النموذج أن كل مراهق يمتلك "الرفاهية الزمنية والمادية" للمرور بمرحلة الاستكشاف وتجريب الأدوار، متجاهلاً الحتميات السوسيولوجية التي تجبر الفئات المهمشة على القفز المباشر لسوق العمل من أجل البقاء.</p>
+                </details>
+
+                <details>
+                    <summary>3. جوهرانية مفهوم الذات (Essentialism of the Self)</summary>
+                    <p>رغم إقراره بالتطور، يضمر سوبر وجود نواة صلبة للميول تتشكل في الطفولة، عكس المقاربات البنائية المعاصرة (مثل سافيكاس) التي تعتبر الذات "سردية" مفتوحة للتأليف وإعادة الكتابة المستمرة.</p>
+                </details>
+            </section>
+
+            <section id="critiques" class="critiques-section">
+                <h2>التحليل النقدي: المركزية المعرفية والمبرر المنهجي للسيكودراما</h2>
+                <p>رغم الريادة التاريخية لسوبر في إدماج "لعب الأدوار" كأداة استكشاف، إلا أن مقاربته عانت من قصور إبستمولوجي يشرعن منهجية دراستنا الحالية:</p>
+                <ul>
+                    <li>
+                        <strong>العمى الجسدي (Somatic Blindness):</strong> اعتبر سوبر أن تقييم لعب الأدوار يتم بشكل "عقلي" بحت. التلميذ يمثل الدور ويقيّمه بأفكاره، مقصياً تماماً دور الجسد وردود الفعل الفسيولوجية. هذا يبرر اعتمادنا لـ "الإدراك المجسد"؛ فالمتعلم قد يقبل المهنة عقلياً، لكن جسده يرفضها بالتوتر أثناء المحاكاة <span class="citation">(العميري، استنتاج نقدي)</span>.
+                    </li>
+                    <li>
+                        <strong>سطحية لعب الأدوار الكلاسيكي:</strong> اقتصر مفهوم سوبر على الخيال أو الوظائف الصيفية البسيطة <span class="citation">(Super, 1957, p. 88)</span>، ولم يرقَ إلى مستوى "المحاكاة السريرية المتجسدة" (السيكودراما) التي تعتمد على مواقف ضاغطة ومفاجئة لتوليد "أخطاء التنبؤ" وكشف الجاهزية الحقيقية للمراهق.
+                    </li>
+                    <li>
+                        <strong>تجاهل اللايقين (Uncertainty):</strong> بناء المسار اليوم يتطلب المرونة العالية وتوليد المعاني المستمرة، وهو ما تنقله النظريات الحديثة من "النضج الخطي" إلى "التكيف المهني" والسردية المستمرة.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="map">
+                <h2>الخريطة المفاهيمية: من مفهوم الذات إلى نضح الهوية</h2>
+                <p>توضح الخطاطة مسار الاستكشاف المهني بدءاً من تصورات الذات وصولاً إلى استقرار الهوية عبر المحاكاة الجسدية.</p>
+                <div class="mermaid">
+                    graph TD;
+                        A[مفهوم الذات المهني Self-Concept] --> B(مرحلة الاستكشاف Exploration Stage);
+                        B --> C{اختبار الواقع Reality Testing};
+                        C -->|تفعيل عبر| D[لعب الأدوار Role Playing];
+                        D --> E[محاكاة سردية متجسدة Embodied Simulation];
+                        E --> F((نضح الهوية / الاستدماج Identity Bleed));
+                        F --> G[النضج المهني Vocational Maturity];
+                        
+                        style A fill:#2c3e50,stroke:#333,stroke-width:2px,color:#fff
+                        style F fill:#2980b9,stroke:#333,stroke-width:2px,color:#fff
+                        style G fill:#27ae60,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+            </section>
+
+            <section id="engineering">
+                <h2>الهندسة التطبيقية: استثمار "لعب الأدوار" في بناء المسار</h2>
+                <p>تحويل الدورة الإرشادية الكلاسيكية لسوبر إلى مسار تفاعلي معاصر يعتمد <span class="concept-link" data-title="النضج المهني (Vocational Maturity)" data-def="درجة التطور والاستعداد للتعامل مع المهام المهنية المطلوبة في مرحلة عمرية معينة." data-details="لا يقاس بالسن الكرونولوجي بل بمدى الاستعداد المعرفي والانفعالي لاتخاذ القرار." data-case="تلميذ يستكشف عدة مسارات ويبحث عن معلوماتها، يمتلك نضجاً مهنياً أعلى من تلميذ يقرر بشكل انفعالي ومبكر دون استكشاف.">النضج المهني</span> كأساس.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>1. استكشاف السردية الذاتية (Exploration)</h4>
+                            <p>دعوة المراهق للحديث عن خيالاته المهنية المبكرة، وتحديد "الموضوعات" التي تتكرر في اهتماماته (كالسلطة، الرعاية، التنظيم) لتشكيل صورة أولية لمفهوم الذات.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2. المحاكاة السردية المتجسدة (Role-Playing)</h4>
+                            <p>نقل المراهق من الاستكشاف اللفظي إلى "غرفة القياس النفسية والجسدية" (ركح السيكودراما). هنا يتم تفعيل تقنية "لعب الأدوار" لتجربة الذات الممكنة واقعياً <span class="citation">(Super, 1957, p. 83)</span>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>3. تقييم "اختبار الواقع" ونضح الهوية</h4>
+                            <p>تحليل المشاعر وردود الفعل الجسدية التي برزت أثناء الأداء. هل شعر المتعلم بالانسجام مع الدور؟ يتم رصد <span class="concept-link" data-title="نضح الهوية (Identity Bleed / Assimilation)" data-def="العملية التي تتسرب فيها المهارات والقيم من الدور التمثيلي المؤدى في المحاكاة لتندمج في الهوية الواقعية الدائمة." data-details="يعتبر تطويراً معاصراً لمفهوم (الاستدماج) عند سوبر." data-case="بعد أداء متقن لدور 'مرافع قانوني' على خشبة المسرح، يكتسب التلميذ ثقة بالنفس 'تنزف' من المشهد التمثيلي وتستقر في حياته اليومية.">نضح الهوية</span> عبر استدماج السلوكيات الإيجابية التي ولدت الرضا أثناء المحاكاة في شخصية المتعلم الفعلية.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>4. التوليف السردي واتخاذ القرار (Synthesis)</h4>
+                            <p>مرحلة دمج التجارب المتجسدة مع المعطيات الموضوعية للتوجيه، لمساعدة المتعلم على صياغة مشروع شخصي مرن قادر على استيعاب التغييرات المستقبلية <span class="citation">(Super, 1957, p. 174)</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quotes">
+                <h2>اقتباسات مرجعية دالة</h2>
+                
+                <blockquote>
+                    <p>ينظر إلى التطور المهني كأحد جوانب التطور الفردي... له خصائصه المميزة التي تبرر التركيز عليه، وخصائص مشتركة تكشف عنه كطريقة يتجلى بها التطور العام للفرد.</p>
+                    <footer>&mdash; <span class="citation">(Super, 1957, p. 185)</span></footer>
+                </blockquote>
+
+                <blockquote>
+                    <p>اختيار المهنة هي إحدى النقاط في الحياة التي يُطلب فيها من الشاب أن يعبر بشكل صريح عن مفهومه عن نفسه، وأن يقول بشكل قاطع أنا هذا أو ذاك النوع من الأشخاص... في تعزيز التطور المهني، يعزز المرشد التطور الشخصي، لأنه يحاول مساعدة الفرد على تطوير وتنفيذ مفهوم مناسب وواقعي عن نفسه.</p>
+                    <footer>&mdash; <span class="citation">(Super, 1957, pp. 191-192)</span></footer>
+                </blockquote>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="conceptModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 class="modal-title" id="modalTitle">اسم المفهوم</h3>
+            <p><strong>التعريف الأكاديمي:</strong> <span id="modalDef">...</span></p>
+            <p><strong>الامتداد النظري:</strong> <span id="modalDetails">...</span></p>
+            <div class="modal-case-study">
+                <strong>💡 حالة تطبيقية (سياق التوجيه المدرسي وبناء المسار):</strong>
+                <p id="modalCase" style="margin-bottom: 0;">...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة مكتبة Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Cairo' });
+
+        // تفاعلية القائمة الجانبية (ScrollSpy)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#toc-list a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // إضافة هامش لضمان الدقة في تفعيل القائمة
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // نظام النوافذ المنبثقة (Modals)
+            const conceptLinks = document.querySelectorAll('.concept-link');
+            const modal = document.getElementById('conceptModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDef = document.getElementById('modalDef');
+            const modalDetails = document.getElementById('modalDetails');
+            const modalCase = document.getElementById('modalCase');
+
+            conceptLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // جلب البيانات من الخصائص Data attributes
+                    modalTitle.textContent = link.getAttribute('data-title');
+                    modalDef.textContent = link.getAttribute('data-def');
+                    modalDetails.textContent = link.getAttribute('data-details');
+                    modalCase.textContent = link.getAttribute('data-case');
+                    
+                    modal.classList.add('active');
+                });
+            });
+
+            // إغلاق النافذة
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // إغلاق عند النقر خارج المحتوى
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+// دعم شاشات اللمس (الهواتف) لظهور المراجع (Tooltips)
+            const citations = document.querySelectorAll('.citation-tooltip, .citation');
+            citations.forEach(citation => {
+                citation.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    citations.forEach(c => { if (c !== this) c.classList.remove('active-touch'); });
+                    this.classList.toggle('active-touch');
+                });
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.classList.contains('citation-tooltip') && !e.target.classList.contains('citation')) {
+                    citations.forEach(c => c.classList.remove('active-touch'));
+                }
+            });
+    </script>
+</body>
+</html>

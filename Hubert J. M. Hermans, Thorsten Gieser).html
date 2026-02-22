@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظرية الذات الحوارية: تحليل موسع - هيرمانز وجيسر</title>
+    <!-- Mermaid.js للخريطة المفاهيمية -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Dubai', 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
+            background-color: #FAF9F6; /* off-white */
+            color: #333333;
+            line-height: 1.8;
+            font-size: 18px;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* العناوين */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Dubai', 'Helvetica', 'Arial', sans-serif;
+            font-weight: 600;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            color: #222;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.2em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #ccc;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            border-bottom: 1px dashed #aaa;
+        }
+
+        /* الحاوية الرئيسية مع مساحة للقائمة الجانبية */
+        .container {
+            max-width: 800px;
+            margin-right: 260px; /* لترك مساحة للقائمة على اليمين */
+            margin-left: auto;
+            padding: 0 15px;
+        }
+
+        /* قائمة التنقل العائمة على اليمين */
+        .toc {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 220px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 1rem 0.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            font-family: 'Dubai', 'Helvetica', sans-serif;
+            font-size: 0.9rem;
+            max-height: 70vh;
+            overflow-y: auto;
+            z-index: 1000; /* عالي لكنه لا يخفي النص لأن الحاوية بها هامش */
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.4rem;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #444;
+            display: block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .toc a:hover, .toc a.active {
+            background-color: #e0e0e0;
+            color: #000;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1100px) {
+            .container {
+                margin-right: 0;
+            }
+            .toc {
+                display: none;
+            }
+        }
+
+        /* بطاقة تعريف العالم */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px 25px;
+            margin: 40px 0 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #555;
+        }
+
+        .profile-desc {
+            flex: 1;
+        }
+
+        .profile-desc p {
+            margin: 0 0 0.5rem;
+        }
+
+        /* صندوق الأطروحة */
+        .hero-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .hero-box h2 {
+            color: #f1c40f;
+            border-bottom: none;
+            margin-top: 0;
+        }
+
+        /* أيقونات */
+        .icon-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-title svg {
+            width: 28px;
+            height: 28px;
+            fill: #2c3e50;
+        }
+
+        /* بطاقات وأطر */
+        .card {
+            background: #fff;
+            padding: 1.8rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+            margin: 30px 0;
+            border: 1px solid #f0f0f0;
+        }
+
+        .critique-card {
+            background: #fff5f5;
+            border-right: 8px solid #c0392b;
+            padding: 1.8rem;
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+
+        details {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            border: 1px solid #e9ecef;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        /* صناديق الاقتباس */
+        blockquote {
+            background: #f9f9f9;
+            border-right: 8px solid #7f8c8d;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            position: relative;
+            font-style: italic;
+            color: #2c3e50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        blockquote::before {
+            content: "“";
+            font-size: 6rem;
+            position: absolute;
+            right: 10px;
+            top: -20px;
+            opacity: 0.15;
+            font-family: serif;
+        }
+
+        .ref {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 1rem;
+            text-align: left;
+            border-top: 1px dotted #ccc;
+            padding-top: 0.5rem;
+        }
+
+        /* المفاهيم التفاعلية */
+        .concept-link {
+            color: #c0392b;
+            border-bottom: 2px dotted #c0392b;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+            padding: 0 2px;
+        }
+
+        .concept-link:hover {
+            background-color: #ffe6e6;
+        }
+
+        /* نافذة منبثقة (modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            position: relative;
+            font-family: 'Dubai', 'Helvetica', sans-serif;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        /* Tooltip للمراجع */
+        .ref-hover {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed #999;
+        }
+
+        .ref-hover:hover::after {
+            content: attr(data-full);
+            position: absolute;
+            background: #2c3e50;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 5px;
+            z-index: 50;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Mermaid */
+        .mermaid {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        /* تنسيقات عامة */
+        ul, ol {
+            padding-right: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            margin: 3rem 0;
+            border: 0;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .note {
+            background: #f1f9ff;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+/* ================= التجاوب مع شاشات الهاتف ================= */
+        @media (max-width: 992px) {
+            .page-container, .layout-wrapper { flex-direction: column; padding: 15px; }
+            .sidebar { width: 100%; position: static; margin-bottom: 20px; }
+            .main-content { max-width: 100%; width: 100%; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 1.05rem; }
+            .profile-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px;}
+            .hero-box { padding: 25px 15px; }
+            .hero-box h2 { font-size: 1.6rem; }
+            .problem-card, .arguments-list li { padding: 15px; }
+            .mermaid-container, .mermaid-wrapper { padding: 5px; overflow-x: scroll; }
+            .academic-quote { padding: 30px 15px 15px 15px; }
+            .academic-quote::before { font-size: 8rem; top: -15px; right: 10px; }
+            .modal-box, .modal-card { width: 95%; }
+            .citation-tooltip::after, .citation::after { width: 260px; left: 50%; transform: translateX(-50%); }
+            .citation-tooltip.active-touch::after, .citation-tooltip.active-touch::before, 
+            .citation.active-touch::after, .citation.active-touch::before { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+    <!-- قائمة التنقل العائمة على اليمين -->
+    <nav class="toc" id="toc">
+        <ul>
+            <li><a href="#profile">الباحثان</a></li>
+            <li><a href="#thesis">الأطروحة المركزية</a></li>
+            <li><a href="#problem">الإشكال المعرفي</a></li>
+            <li><a href="#arguments">الحجج الأساسية</a></li>
+            <li><a href="#assumptions">الفرضيات الضمنية</a></li>
+            <li><a href="#limits">حدود الطرح</a></li>
+            <li><a href="#conceptmap">الخريطة المفاهيمية</a></li>
+            <li><a href="#methods">الهندسة التطبيقية</a></li>
+            <li><a href="#quotes">اقتباسات</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- تعريف بالعالمين -->
+        <section id="profile">
+            <div class="profile-card">
+                <div class="profile-img">🧑‍🏫</div>
+                <div class="profile-desc">
+                    <p><strong>هوبير هيرمانز (Hubert J.M. Hermans)</strong> و<strong>تورستن غيزر (Thorsten Gieser)</strong>، محررا "كتاب نظرية الذات الحوارية" (2012). هيرمانز، أستاذ فخري بجامعة رادبود، هولندا، ومؤسس النظرية. غيزر، محاضر في الأنثروبولوجيا الاجتماعية بجامعة كوبلنز-لانداو. يقدمان نموذجاً جسرياً يربط بين علم النفس والأنثروبولوجيا والعلاج النفسي، متجاوزين الثنائيات التقليدية (داخلي/خارجي، ذات/آخر).</p>
+                    <p style="font-size:0.9rem">الارتباط بالبحث: تحليل "نضح الهوية" و"المعرفة المتجسدة" عبر مفهوم المواقع الحوارية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- الأطروحة المركزية -->
+        <section id="thesis">
+            <div class="hero-box">
+                <h2>📌 الأطروحة المركزية: الذات كـ"مجتمع حواري"</h2>
+                <p>الذات ليست كياناً ثابتاً، بل هي <span class="concept-link" data-concept="multiplicity">تعددية ديناميكية من مواقع الأنا (I-positions)</span> (هيرمانز وجيسر، 2012، ص. 2). "الأنا" تتنقل بين مواقع داخلية (أنا كطالب) وخارجية (صوت الأم) في فضاء ذهني، وتقيم علاقات حوارية (اتفاق، صراع، تفاوض). هذه النظرية تجسر بين الداخلي والخارجي، الذات والمجتمع، وتفسر التعقيد الهوياتي في عالم معولم.</p>
+                <p><em>أهميتها للبحث: تفسير كيفية تعدد الأصوات المهنية لدى المراهق (طالب، مهندس مستقبلي، شخص قلق) وتفاعلها عبر لعب الأدوار.</em></p>
+            </div>
+        </section>
+
+        <!-- الإشكال المعرفي -->
+        <section id="problem" class="card">
+            <div class="icon-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <h3>الإشكال المعرفي</h3>
+            </div>
+            <p>كيف يمكن التوفيق بين حاجة الذات إلى التماسك والاستمرارية (المركزية) وبين تعددها الداخلي وتأثرها بالسياقات المتغيرة (اللامركزية)؟ النماذج الكارتيزية تفصل الذات عن الآخر، وتعجز عن تفسير ظواهر مثل الهويات المهنية المتضاربة لدى المراهق. الإشكال الأعمق: كيف تنتج الذات معنى من خلال حوار داخلي مع "أصوات" الآخرين (الأسرة، المجتمع، الثقافة)؟</p>
+            <div class="note">
+                <strong>تساؤلات فرعية:</strong>
+                <ul>
+                    <li>كيف يتم استيعاب الأصوات الاجتماعية (كالأبوين) في بنية الذات؟</li>
+                    <li>كيف تتولد مواقع جديدة (كالموقع المهني) عبر التفاعل الحواري؟</li>
+                    <li>ما دور الجسد والعاطفة في هذه العملية الحوارية؟</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- الحجج الأساسية (مرقمة) -->
+        <section id="arguments">
+            <h3>⚙️ الحجج الأساسية</h3>
+            <ol style="line-height:1.8; list-style-type:decimal;">
+                <li><strong>حجة تاريخية-نظرية:</strong> تمتد جذور النظرية إلى <span class="concept-link" data-concept="james">جيمس</span> (الذات الممتدة)، <span class="concept-link" data-concept="mead">ميد</span> (الآخر العام والأنا المبتكرة)، و<span class="concept-link" data-concept="bakhtin">باختين</span> (الرواية البوليفونية). مثال: استعارة باختين للذات كرواية بأصوات متعددة تتحاور (هيرمانز وجيسر، 2012، ص. 6).</li>
+                <li><strong>حجة سوسيو-سياسية:</strong> في عالم معولم، تتصادم الأصوات الجماعية (محلية/عالمية) داخل الذات الواحدة، مما يتطلب حواراً داخلياً (هيرمانز وجيسر، 2012، ص. 5). مثال: مراهق مغربي يتأرجح بين صوت الأسرة التقليدي وصوت الإعلام العالمي.</li>
+                <li><strong>حجة أنطولوجية:</strong> تجاوز رؤية جيمس للآخر كـ"ملكية" إلى رؤية <span class="concept-link" data-concept="buber">بوبر</span> للآخر كـ"أنت" مخاطَب. هذا يؤسس لـ"الغيرية داخل الذات" (Cooper & Hermans, 2007).</li>
+                <li><strong>حجة الديناميكية والسلطة:</strong> الحوارات الداخلية تخضع لعلاقات هيمنة، وعدم تماثل، وصراع على الأصوات (Linell, 1990). مثال: صوت الأب المهيمن على اختيارات المراهق المهنية.</li>
+            </ol>
+        </section>
+
+        <!-- الفرضيات الضمنية (details) -->
+        <section id="assumptions">
+            <h3>🔍 الفرضيات الضمنية (اضغط للكشف)</h3>
+            <details>
+                <summary>الأسس الإبستيمولوجية للنظرية</summary>
+                <ul>
+                    <li><strong>البنائية الاجتماعية:</strong> الذات بناء اجتماعي-لغوي مستمر.</li>
+                    <li><strong>الظاهراتية:</strong> الأولوية للخبرة الذاتية المعاشة والفضاء الظاهراتي للذات.</li>
+                    <li><strong>نظرية النشاط:</strong> الذات مرتبطة بالسياق والزمان/المكان (مواقع متجسدة).</li>
+                    <li><strong>ما بعد البنيوية:</strong> نقد الذات الموحدة، واحتضان التعدد واللامركزية.</li>
+                </ul>
+            </details>
+        </section>
+
+        <!-- حدود الطرح / نقد -->
+        <section id="limits" class="critique-card">
+            <h3>⚠️ حدود الطرح ونقاط ضعفه</h3>
+            <p><strong>الغموض المفاهيمي:</strong> مفاهيم "الموقع ما ورائي" و"الموقع المعزز" تحتاج إلى تعريفات إجرائية أوضح. كيف يمكن قياس "الموقع المعزز" في سياق التوجيه المهني؟</p>
+            <p><strong>التركيز على اللغة:</strong> النظرية تفضل "الصوت" و"السرد"، مما قد يهمش البعد ما قبل-الإنعكاسي والجسدي. هذا يتعارض مع "أولوية المعرفة المتجسدة" التي نتبناها في بحثنا (انظر النقد في التحليل الميتامعرفي).</p>
+            <p><strong>التحيز الثقافي الغربي:</strong> بنية "الحوار" و"التفاوض" قد تفترض فردانية لا تنطبق بالكامل على السياقات الجماعية (مثل الثقافة المغربية التي تمزج بين الفردية والجماعية). (هيرمانز وجيسر، 2012، ص. 8).</p>
+        </section>
+
+        <!-- الخريطة المفاهيمية باستخدام Mermaid -->
+        <section id="conceptmap">
+            <h3>🧠 الخريطة المفاهيمية للنظرية</h3>
+            <pre class="mermaid">
+            graph TD
+                A[الذات الحوارية] --> B[موقع الأنا I-position]
+                B --> C[داخلي internal]
+                B --> D[خارجي external]
+                A --> E[علاقات حوارية]
+                E --> F[اتفاق / صراع / تفاوض]
+                E --> G[هيمنة Dominance]
+                A --> H[آليات تنظيمية]
+                H --> I[موقع ما ورائي Meta-position]
+                H --> J[موقع ثالث Third position]
+                H --> K[موقع معزز Promoter position]
+                A --> L[قوى كونية]
+                L --> M[تمركز Centring]
+                L --> N[لامركزية Decentring]
+                A --> O[إزاحة التموقع Depositioning]
+                
+                style A fill:#f9f,stroke:#333,stroke-width:2px
+                style I fill:#bbf,stroke:#33a
+                style J fill:#bbf
+                style K fill:#bbf
+            </pre>
+            <p class="ref">(مستوحى من هيرمانز وجيسر، 2012)</p>
+        </section>
+
+        <!-- الهندسة التطبيقية (Timeline) -->
+        <section id="methods">
+            <h3>📋 الهندسة التطبيقية: نموذج تدخل قائم على لعب الأدوار</h3>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <div style="border-right:4px solid #2c3e50; padding-right:20px; margin-right:20px;">
+                    <h4>❶ اللامركزية: المحاكاة المتجسدة</h4>
+                    <p>المراهق يمثل دوراً مهنياً (أنا كمهندس) في سيناريو محاكاة (تقديم مشروع). الهدف: إحياء موقع الأنا المهني جسدياً وعاطفياً. هذه المرحلة تستند إلى مفهوم <span class="concept-link" data-concept="embodied">المعرفة المتجسدة</span> وتوزع الذات في المكان/الزمان (هيرمانز وجيسر، 2012، ص. 2).</p>
+                </div>
+                <div style="border-right:4px solid #2c3e50; padding-right:20px; margin-right:20px;">
+                    <h4>❷ التموقع ما ورائي: التفكيك التأملي</h4>
+                    <p>بعد التمثيل، حوار تأملي: "كيف شعرت جسدياً عندما رفض العميل فكرتك؟ من أي موقع في داخلك كنت تتحدث؟" هذه المرحلة تسمح بـ<strong>نضح الهوية</strong> (Identity Bleed) عبر الربط بين التجربة المتجسدة والذات الواقعية (هيرمانز وجيسر، 2012، ص. 15-16).</p>
+                </div>
+                <div style="border-right:4px solid #2c3e50; padding-right:20px; margin-right:20px;">
+                    <h4>❸ التركيب: بناء الموقع الثالث</h4>
+                    <p>بناء موقع ثالث يحل الصراع (مثلاً: "أنا كمتعلم مستمر يطور مشاريعه من النقد"). يتماشى هذا مع <span class="concept-link" data-concept="savickas">نظرية سافيكاس (Savickas)</span> في بناء المسار المهني عبر القصص.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- اقتباسات مباشرة -->
+        <section id="quotes">
+            <h3>📜 اقتباسات محورية</h3>
+            <blockquote>
+                "بأكثر الطرق إيجازًا، يمكن تصور الذات الحوارية باعتبارها تعددية ديناميكية من مواقع الأنا (I-positions). وفقًا لهذه النظرة، تنبثق الأنا (I) من اتصالها الجوهري بالمحيط (الاجتماعي) وتكون مرتبطة بمواقع محددة في الزمان والمكان."
+                <div class="ref">(هيرمانز وجيسر، 2012، ص. 2) <span class="ref-hover" data-full="Hermans, H. J. M., & Gieser, T. (2012). Introductory chapter. In H. J. M. Hermans & T. Gieser (Eds.), Handbook of dialogical self theory (pp. 1-22). Cambridge University Press.">ⓘ</span></div>
+            </blockquote>
+            <blockquote>
+                "الموقع ما ورائي (Meta-position) يسمح بمسافة معينة من موقع أو أكثر... إنه يوفر نظرة شاملة بحيث يمكن رؤية عدة مواقع في وقت واحد وتصبح الروابط ذات الصلة بينها مرئية."
+                <div class="ref">(هيرمانز وجيسر، 2012، ص. 15-16)</div>
+            </blockquote>
+            <blockquote>
+                "يمكن للأفراد أن يموقعوا أنفسهم (position themselves) كمتوافقين أو غير متوافقين مع الخبرات والعواطف الإنسانية الأساسية مثل الكآبة، النشوة، القلق، الرغبة، أو الأمان."
+                <div class="ref">(هيرمانز وجيسر، 2012، ص. 15)</div>
+            </blockquote>
+            <blockquote>
+                "عندما يكون موقعان مشاركين في صراع، يمكن، تحت ظروف محددة، التوفيق بينهما في موقع ثالث (third position) حيث يخف حدة الصراع بين الموقعين الأصليين ويتم احتواؤه."
+                <div class="ref">(هيرمانز وجيسر، 2012، ص. 15)</div>
+            </blockquote>
+        </section>
+
+        <hr>
+        <p style="text-align:center; color:#777;">تحليل موسع وفقاً لمتطلبات البحث: دور السردية المتجسدة في بناء الهوية المهنية لدى المراهقين المغاربة</p>
+    </div>
+
+    <!-- نافذة منبثقة (Modal) للمفاهيم -->
+    <div class="modal" id="conceptModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 id="modalConceptTitle">المفهوم</h3>
+            <p id="modalConceptBody">تفاصيل المفهوم ستظهر هنا.</p>
+            <p id="modalExample" style="font-style:italic; background:#f4f4f4; padding:10px; border-radius:8px;"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript للتفاعلات: modal, scrollspy بسيط -->
+    <script>
+        (function() {
+            // بيانات المفاهيم
+            const conceptData = {
+                multiplicity: {
+                    title: "التعددية (Multiplicity)",
+                    body: "الذات تتكون من عدد من المواقع المستقلة نسبياً، لكل منها منظورها الخاص. هذا لا يعني الفصام، بل الثراء النفسي.",
+                    example: "مراهق يمكنه أن يكون 'طالباً مجتهداً' و'لاعب كرة قدم' و'ابناً باراً'، ولكل موقع مشاعره وسلوكياته."
+                },
+                james: {
+                    title: "وليام جيمس (William James)",
+                    body: "ميز بين 'الأنا' (I) الفاعلة و'المي' (Me) المفعول به. الذات الممتدة تشمل كل ما يمكن للشخص اعتباره 'ملكه' (أسرته، سمعته).",
+                    example: "عندما يقول مراهق 'فريقي خسر'، فإنه يتألم لأن الفريق جزء من ذاته الممتدة."
+                },
+                mead: {
+                    title: "جورج هربرت ميد (G.H. Mead)",
+                    body: "الذات تنشأ من التفاعل الاجتماعي. 'الآخر العام' يمثل قيم المجتمع، بينما 'الأنا' تمثل الاستجابة المبتكرة.",
+                    example: "مراهق يستوعب صوت المجتمع حول أهمية مهنة معينة (الآخر العام) لكنه يحلم بمهنة أخرى (الأنا)."
+                },
+                bakhtin: {
+                    title: "ميخائيل باختين (Mikhail Bakhtin)",
+                    body: "استعارة الرواية البوليفونية: الذات كرواية بأصوات متعددة (شخصيات) تتحاور وتتصارع.",
+                    example: "الحوار الداخلي بين 'أنا كطموح' و'أنا كخائف من الفشل' يشبه حوار شخصيات دوستويفسكي."
+                },
+                buber: {
+                    title: "مارتن بوبر (Martin Buber)",
+                    body: "ميز بين علاقة 'أنا-أنت' (لقاء حقيقي) و'أنا-هو' (تعامل موضوعي). النظرية الحوارية تتبنى العلاقة الأولى.",
+                    example: "المستشار المهني الذي يتعامل مع المراهق كـ'أنت' يستمع بعمق، لا كـ'حالة'."
+                },
+                embodied: {
+                    title: "المعرفة المتجسدة (Embodied Cognition)",
+                    body: "الإدراك والعواطف والمعنى متجذرون في التجربة الجسدية والتفاعل مع البيئة. المواقع ليست أفكاراً فقط، بل هي هيئات جسدية-وجدانية.",
+                    example: "المراهق الذي لعب دور مهندس لا 'يفكر' فقط في الثقة، بل يشعر بها في وقفته ونبرة صوته وتنفسه."
+                },
+                savickas: {
+                    title: "نظرية بناء المسار المهني (Savickas)",
+                    body: "المهنة تُبنى عبر قصص الحياة. الفرد هو مؤلف مساره المهني، والاهتمامات والقدرات تتطور عبر السرد.",
+                    example: "المراهق يصوغ قصة عن مستقبله المهني من خلال تجارب لعب الأدوار، ويكتشف ذاته المهنية الممكنة."
+                }
+            };
+
+            const modal = document.getElementById('conceptModal');
+            const modalTitle = document.getElementById('modalConceptTitle');
+            const modalBody = document.getElementById('modalConceptBody');
+            const modalExample = document.getElementById('modalExample');
+            const closeBtn = document.getElementById('closeModal');
+
+            // فتح النافذة عند النقر على concept-link
+            document.querySelectorAll('.concept-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const key = link.dataset.concept;
+                    if (conceptData[key]) {
+                        modalTitle.textContent = conceptData[key].title;
+                        modalBody.textContent = conceptData[key].body;
+                        modalExample.textContent = "مثال: " + conceptData[key].example;
+                        modal.classList.add('active');
+                    }
+                });
+            });
+
+            // إغلاق النافذة
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+
+            // ScrollSpy بسيط للقائمة
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.toc a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // تهيئة mermaid
+            mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+        })();
+// دعم شاشات اللمس (الهواتف) لظهور المراجع (Tooltips)
+            const citations = document.querySelectorAll('.citation-tooltip, .citation');
+            citations.forEach(citation => {
+                citation.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    citations.forEach(c => { if (c !== this) c.classList.remove('active-touch'); });
+                    this.classList.toggle('active-touch');
+                });
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.classList.contains('citation-tooltip') && !e.target.classList.contains('citation')) {
+                    citations.forEach(c => c.classList.remove('active-touch'));
+                }
+            });
+    </script>
+</body>
+</html>

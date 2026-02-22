@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحليل الأكاديمي الموجه: العقلانية المجسدة لمارك جونسون</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #333333;
+            --primary-color: #1e3799; /* أزرق عميق يرمز للعقل */
+            --accent-color: #e67e22; /* برتقالي دافئ يرمز للجسد والتجربة */
+            --danger-color: #c0392b;
+            --danger-bg: #fdf2f1;
+            --sidebar-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* تخطيط الصفحة والقائمة الجانبية */
+        .layout-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        aside.sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            border-left: 1px solid var(--border-color);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        aside.sidebar h3 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside.sidebar li {
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        aside.sidebar a:hover, aside.sidebar a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        main.content {
+            flex-grow: 1;
+            max-width: 800px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        /* رأس الصفحة الأكاديمي */
+        .academic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .academic-header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .academic-meta {
+            color: #555;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .target-group-badge {
+            background: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95em;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(230, 126, 34, 0.2);
+        }
+
+        /* البطاقة التعريفية للعالم */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-bio h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .profile-bio p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* الصندوق البارز - الأطروحة المركزية */
+        .hero-box {
+            background: linear-gradient(135deg, var(--primary-color), #4a69bd);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-box h2 {
+            color: white;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        /* الإشكال المعرفي */
+        .problem-card {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fffbf7;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .problem-title svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--accent-color);
+        }
+
+        /* القوائم والحجج */
+        ol.arguments-list {
+            padding-right: 20px;
+        }
+        
+        ol.arguments-list li {
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        /* الفرضيات الضمنية */
+        details {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        summary {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* حدود الطرح */
+        .critiques-section {
+            background-color: var(--danger-bg);
+            border-right: 5px solid var(--danger-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .critiques-section h2 {
+            color: var(--danger-color);
+            margin-top: 0;
+        }
+
+        /* الهندسة التطبيقية (Timeline) */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-right: 30px;
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* الاقتباسات */
+        blockquote {
+            position: relative;
+            background: white;
+            margin: 40px 0;
+            padding: 30px 40px 30px 30px;
+            border-right: 5px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '\201D';
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 150px;
+            color: rgba(30, 55, 153, 0.05);
+            font-family: Georgia, serif;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        blockquote footer {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-family: 'Cairo', sans-serif;
+            font-style: normal;
+        }
+
+        /* التفاعلية: المفاهيم */
+        .concept-link {
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: all 0.2s;
+        }
+
+        .concept-link:hover {
+            background-color: rgba(230, 126, 34, 0.1);
+        }
+
+        /* النافذة المنبثقة (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            font-family: 'Amiri', serif;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+        }
+
+        .modal-title {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .modal-case-study {
+            background: #fffbf7;
+            border-right: 3px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            aside.sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main.content {
+                padding: 20px;
+            }
+        }
+/* ================= التجاوب مع شاشات الهاتف ================= */
+        @media (max-width: 992px) {
+            .page-container, .layout-wrapper { flex-direction: column; padding: 15px; }
+            .sidebar { width: 100%; position: static; margin-bottom: 20px; }
+            .main-content { max-width: 100%; width: 100%; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 1.05rem; }
+            .profile-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px;}
+            .hero-box { padding: 25px 15px; }
+            .hero-box h2 { font-size: 1.6rem; }
+            .problem-card, .arguments-list li { padding: 15px; }
+            .mermaid-container, .mermaid-wrapper { padding: 5px; overflow-x: scroll; }
+            .academic-quote { padding: 30px 15px 15px 15px; }
+            .academic-quote::before { font-size: 8rem; top: -15px; right: 10px; }
+            .modal-box, .modal-card { width: 95%; }
+            .citation-tooltip::after, .citation::after { width: 260px; left: 50%; transform: translateX(-50%); }
+            .citation-tooltip.active-touch::after, .citation-tooltip.active-touch::before, 
+            .citation.active-touch::after, .citation.active-touch::before { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <h3>محتويات البحث</h3>
+            <ul id="toc-list">
+                <li><a href="#intro">التمهيد والتعريف</a></li>
+                <li><a href="#thesis">الأطروحة المركزية</a></li>
+                <li><a href="#problem">الإشكال المعرفي</a></li>
+                <li><a href="#arguments">الحجج الأساسية</a></li>
+                <li><a href="#hypotheses">الفرضيات الضمنية</a></li>
+                <li><a href="#critiques">التحليل النقدي والحدود</a></li>
+                <li><a href="#map">الخريطة المفاهيمية</a></li>
+                <li><a href="#engineering">الهندسة التطبيقية</a></li>
+                <li><a href="#quotes">اقتباسات مرجعية</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <header class="academic-header">
+                <h1>التأطير النظري: العقلانية المجسدة لمارك جونسون ودورها في بناء الهوية المهنية</h1>
+                <div class="academic-meta">
+                    <strong>إعداد:</strong> الطالب الباحث عبد الله العميري<br>
+                    <strong>إشراف:</strong> ذ. حمزة شينبو<br>
+                    <strong>المؤسسة:</strong> سلك الماستر في علم النفس التربوي - كلية علوم التربية بالرباط (السنة الجامعية: 2025-2026)
+                </div>
+                <div class="target-group-badge">
+                    التأطير النظري لبحث نيل دبلوم الماستر
+                </div>
+            </header>
+
+            <section id="intro">
+                <div class="profile-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/No_image_available.svg/120px-No_image_available.svg.png" alt="صورة تمثيلية للفيلسوف مارك جونسون">
+                    <div class="profile-bio">
+                        <h3>مارك جونسون (Mark Johnson)</h3>
+                        <p>فيلسوف أمريكي وباحث بارز في العلوم المعرفية، يشتهر بإسهاماته التأسيسية في نظرية <span class="concept-link" data-title="العقلانية المجسدة (Embodied Rationality)" data-def="رؤية إبستمولوجية تعتبر العقل امتداداً تطورياً لحركة الجسد في الفضاء، وترى أن العقلانية ليست حاسوباً مجرداً، بل إدارة ذكية للاستعارات الجسدية." data-details="تقلب الطاولة على الفلسفة التحليلية الكلاسيكية بإثبات أن المعنى والخيال نتاج مباشر لبنيتنا الجسدية." data-case="في دراستنا، لا نطلب من المتعلم التفكير في مهنته تجريدياً، بل نطلب منه تمثيلها حركياً؛ فالعقل يدرك المهنة من خلال محاكاتها جسدياً.">العقلانية المجسدة</span>. من خلال كتابه المرجعي "الجسد في العقل" (The Body in the Mind) (1987)، يقدم جونسون رؤية معرفية بديلة تؤسس للفهم انطلاقاً من المخططات التصويرية التي تنبثق من تفاعلاتنا الجسدية مع العالم، مما يمنح الإطار النظري لبحثنا حول "السيكودراما" شرعية إبستمولوجية عميقة (Johnson, 1987).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="thesis">
+                <div class="hero-box">
+                    <h2>الأطروحة المركزية: العقلانية المجسدة (Embodied Rationality)</h2>
+                    <p>يدافع مارك جونسون عن أطروحة ثورية تقلب الطاولة على الفلسفة التحليلية الكلاسيكية، ومفادها أن "المعنى والخيال والعقل ليست ملكات تجريدية متعالية، بل هي نتاج مباشر لبنيتنا الجسدية وتفاعلاتنا الحس-حركية مع البيئة" (Johnson, 1987, p. xix).</p>
+                    <p>الجوهر هنا هو أن العقل ليس مجرد "برنامج" يُشغل على "عتاد" (الجسد)، بل إن منطق العقل هو ذاته منطق الجسد. إن الاستدلال المجرد هو في حقيقته إسقاط استعاري لتجارب جسدية ملموسة. فالتلميذ الذي يجسد دوراً على ركح المسرح، لا يؤدي حركة فيزيائية فحسب، بل هو يفعّل <span class="concept-link" data-title="المخططات الصور-مفاهيمية (Image Schemata)" data-def="أنماط ديناميكية متكررة لتفاعلاتنا الإدراكية وبرامجنا الحركية التي تمنح خبرتنا تماسكاً وبنية (مثل مخطط الحاوية، المسار، التوازن)." data-details="هي ليست صوراً ذهنية ثابتة، بل قوالب حركية تنظم المعاني." data-case="عندما يشعر التلميذ بالضيق داخل فضاء المسرح (مخطط الحاوية)، فهو يختبر معنى 'القيود المهنية' إبستمولوجياً قبل أن يدركها لغوياً.">مخططاً صور-مفاهيمياً</span> يمثل المعنى العميق للمهنة.</p>
+                </div>
+            </section>
+
+            <section id="problem">
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        <h2 style="margin: 0;">الإشكال المعرفي: سجن "الموضوعانية" وانفصال المعنى</h2>
+                    </div>
+                    <p>يحاول جونسون حل معضلة إبستمولوجية كبرى يسميها <span class="concept-link" data-title="الموضوعانية (Objectivism)" data-def="النموذج الفلسفي الذي يفصل المعنى عن الفهم البشري ويجعله مجرد علاقة مباشرة وموضوعية بين الرموز والعالم الخارجي المستقل عن الجسد." data-details="يفترض هذا النموذج أن العقل يعمل في طابق علوي مستقل عن الحواس والجسد." data-case="التوجيه الكلاسيكي الذي يعتمد على الروائز الورقية فقط يتبنى الموضوعانية، متجاهلاً أن التلميذ لن يفهم 'المسؤولية المهنية' كرمز لغوي، بل كإحساس جسدي بثقلها.">"الموضوعانية"</span>، والتي تفترض أن المعنى هو مجرد علاقة صورية بين رموز لسانية وعالم خارجي مستقل تماماً عن الجسد (Johnson, 1987). وتتبلور الأزمة في التساؤل التالي:</p>
+                    <p style="font-weight: bold; font-size: 1.1em; text-align: center; color: var(--primary-color); margin: 20px 0;">
+                        كيف يمكن للإنسان أن يفهم المفاهيم المجردة (مثل التطور المهني، العدالة، أو الزمن) إذا لم يكن لها وجود مادي ملموس؟ وكيف تتحول الرموز اللسانية الصماء إلى معانٍ عميقة توجه حياة الفرد؟
+                    </p>
+                </div>
+            </section>
+
+            <section id="arguments">
+                <h2>الحجج الأساسية: ثالوث المخططات، الاستعارة، والجماليات</h2>
+                <ol class="arguments-list">
+                    <li>
+                        <strong>حجة المخططات الصور-مفاهيمية (Image Schemata):</strong> يجادل جونسون بأننا نمتلك أنماطاً متكررة من التجربة الجسدية (مثل مخطط "الحاوية" Container، أو "المسار" Path، أو "التوازن" Balance). هذه المخططات هي التي تمنح الفكر شكله ومنطقه الأساسي (Johnson, 1987, p. xiv).
+                        <br><small style="color: #666;">مثال: فهمنا لـ "الاستقرار المهني" نابع من تجربتنا البيولوجية لـ "توازن" الجسد.</small>
+                    </li>
+                    <li>
+                        <strong>حجة الإسقاط الاستعاري (Metaphorical Projection):</strong> الدماغ يستخدم بنية التجارب الجسدية لفهم المجالات المعقدة؛ فنحن ندرك "النقاش" كأنه "حرب" (هجوم ودفاع) لأن أجسادنا تعرف معنى الصراع العضلي (Johnson, 1987, p. 15).
+                    </li>
+                    <li>
+                        <strong>حجة جماليات الفهم (Aesthetics of Meaning):</strong> المعنى ليس مجرد قضايا منطقية (صدق/كذب)، بل هو <span class="concept-link" data-title="جماليات الفهم (Aesthetics of Meaning)" data-def="الأبعاد النوعية والشعورية (الايقاع، التوتر، الانسجام) التي تسبق اللغة وتمنحنا الإحساس بالمعنى." data-details="المعنى يحس به جسدياً (كحالة بيولوجية) قبل أن يفهم منطقياً." data-case="عندما يشعر التلميذ بالتوتر وانعدام الانسجام أثناء أدائه لدور 'مدير'، فإن جسده يخلق معنى 'رفض المهنة' انطلاقاً من إحساس جمالي بعدم التوافق.">تجربة جمالية وشعورية</span>. "الإحساس بالكيفية" هو الأساس الذي يسبق التنظير اللغوي.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="hypotheses">
+                <h2>الفرضيات الإبستمولوجية الضمنية (ما يسكت عنه جونسون)</h2>
+                
+                <details>
+                    <summary>1. فرضية "الاستمرارية النشوئية" (Evolutionary Continuity)</summary>
+                    <p>يفترض جونسون ضمناً عدم وجود قطيعة بين إدراك الحيوان للبيئة وتفكير الإنسان المجرد؛ فالقدرات العقلية العليا هي "إعادة تدوير" لدوائر عصبية كانت تُستخدم لمهام حركية قديمة (المشي، تفادي العوائق) (Johnson, 1987).</p>
+                </details>
+                
+                <details>
+                    <summary>2. فرضية "اللاوعي المعرفي" (The Cognitive Unconscious)</summary>
+                    <p>يفترض أن 95% من تفكيرنا وبناء المعنى يحدث تحت مستوى الوعي اللغوي، عبر آليات جسدية لا نتحكم فيها بوعي. التلميذ لا "يقرر" استخدام استعارة معينة، بل جسده هو من يفرض المعنى.</p>
+                </details>
+
+                <details>
+                    <summary>3. فرضية "الكلية البيولوجية" (Biological Holism)</summary>
+                    <p>تفترض عدم وجود فاصل بين "الإحساس"، "العاطفة"، و"المنطق". كلها عمليات بيولوجية جسدية مندمجة ترفض ثنائية العقل/الجسد (Johnson, 1987).</p>
+                </details>
+                
+                <details>
+                    <summary>4. فرضية "الواقعية التجريبية" (Experiential Realism)</summary>
+                    <p>الحقيقة ليست شيئاً "خارجياً تماماً"، بل هي واقع "بشري" محكوم بحدود وقدرات الجسد (نحن ندرك العالم كما تسمح لنا أجسادنا برؤيته) (Johnson, 1987).</p>
+                </details>
+            </section>
+
+            <section id="critiques" class="critiques-section">
+                <h2>التحليل النقدي: حدود الطرح ومأزق الاختزال البيولوجي</h2>
+                <p>رغم القوة الثورية لربط المعنى بالجسد، تواجه نظرية جونسون تحديات إبستمولوجية تبرر ضرورة المقاربة التكاملية في بحثنا:</p>
+                <ul>
+                    <li>
+                        <strong>معضلة "التجريد الفائق" (Problem of High Abstraction):</strong> المخططات الجسدية البسيطة (كالحاوية والمسار) قادرة على تفسير مفاهيم أساسية، لكنها قد تضيق عن تفسير العمليات المعرفية والتقنية شديدة التعقيد. الجسد يمنح "المعنى" لكنه لا يمنح "الكفاءة التقنية" الصرفة للمهنة <span class="citation" data-full-ref="تحليل الباحث والنقد الإبستمولوجي">(العميري، تحليل منهجي)</span>.
+                    </li>
+                    <li>
+                        <strong>مأزق "النسبية الجسدية" (Bodily Relativism):</strong> إذا كان المعنى نتاج بنية جسدية فردية وتجارب حركية خاصة، فكيف نبني "لغة مهنية مشتركة" وموضوعية لسوق الشغل؟ هنا نحتاج لاستكمال جونسون بنظريات التكوين الاجتماعي (مثل سافيكاس).
+                    </li>
+                    <li>
+                        <strong>إهمال "التغذية الراجعة الثقافية":</strong> يرى جونسون الثقافة كإسقاط للجسد، لكن العكس صحيح أيضاً. المعنى المهني للمراهق المغربي قد تفرضه الثقافة (سلطة، وقار) على الجسد، وليس العكس فقط.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="map">
+                <h2>الخريطة المفاهيمية (البنية التصاعدية لنظرية جونسون)</h2>
+                <p>توضح الخطاطة كيف تعمل النظرية كـ "مصنع للمعنى"؛ حيث تبدأ من الفيزيولوجيا لتصل إلى العقلانية المجسدة.</p>
+                <div class="mermaid">
+                    graph TD;
+                        A[التفاعل الحسي-الحركي للجسد في الفضاء] -->|تكرار التجربة| B(المخططات الصور-مفاهيمية Image Schemata);
+                        B -->|مادة خام| C(الخيال التكويني Constitutive Imagination);
+                        C -->|تفعيل عبر| D[الإسقاط الاستعاري Metaphorical Projection];
+                        D --> E((المعنى غير الاقتراحي والوعي المهني));
+                        E --> F[العقلانية المجسدة Embodied Rationality];
+                        
+                        G[جماليات الفهم Aesthetics of Meaning] -.->|طاقة مشغلة| C;
+                        
+                        style A fill:#e67e22,stroke:#333,stroke-width:2px,color:#fff
+                        style C fill:#1e3799,stroke:#333,stroke-width:2px,color:#fff
+                        style F fill:#2c3e50,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+            </section>
+
+            <section id="engineering">
+                <h2>الهندسة التطبيقية: ترجمة "المخططات الجسدية" في السيكودراما</h2>
+                <p>كيف نحوّل فلسفة جونسون إلى متغيرات وبنود ملاحظة دقيقة لقياس الهوية المهنية للمراهق المغربي؟</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>1. مرحلة الاستفزاز (Triggers)</h4>
+                            <p>تصميم مواقف سيكودرامية تستهدف مخططات محددة. مثلاً: تمثيل "مواجهة مع مدير غاضب" يستهدف بشكل مباشر اختبار مخطط "القوة/المقاومة".</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2. مرحلة الملاحظة ورصد المخططات</h4>
+                            <p>في شبكة الملاحظة، لا يتم تسجيل "خوف" مجرد، بل يُرصد التفعيل الحركي: إذا انكمش التلميذ، فهو يفعل مخطط "الحاوية المغلقة" (شعور بالتهديد المهني)، وإذا اندفع للأمام فهو يفعل مخطط "المسار" (الرغبة في الإنجاز).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>3. مرحلة الربط المعرفي (الاستعارة)</h4>
+                            <p>بعد الورشة، يتم استنطاق التلميذ بأسئلة تستهدف لغته الاستعارية. عندما يعبّر بكلمات مثل "الطريق مسدود"، يكون قد استخدم <span class="concept-link" data-title="الإسقاط الاستعاري (Metaphorical Projection)" data-def="آلية معرفية يتم بها إسقاط بنية ذات معنى من مجال خبرة جسدية مادية (المصدر) على مجال خبرة مجرد (الهدف)." data-details="هذا يسمح بتنظيم وفهم المفاهيم المعقدة." data-case="التلميذ الذي يستنتج أن 'المهنة رحلة' يسقط تجربته الجسدية في المشي وتجاوز العقبات لفهم مساره المستقبلي.">إسقاطاً استعارياً</span> (Johnson, 1987, p. 15) يعكس إبستمولوجياً جودة تكيفه المهني.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>4. السياقلة الثقافية المغربية</h4>
+                            <p>ترجمة المعنى الجسدي المعبّر عنه بالدارجة المغربية إلى مفاهيم جونسون (مثلاً: تعبير التلميذ "تزيّرت" يمثل تفعيلاً صريحاً لمخطط الحاوية الضيقة)، مع مراعاة "الحياء الجسدي" والتركيز على المخططات المجهرية كإيماءات اليد ونبرة الصوت.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quotes">
+                <h2>اقتباسات مرجعية دالة</h2>
+                
+                <blockquote>
+                    <p>نحن البشر نمتلك أجساداً. نحن حيوانات عاقلة، ولكننا أيضاً حيوانات فاعلة، مما يعني أن عقلانيتنا متجسدة. تؤثر مركزية التجسيد البشري تأثيراً مباشراً على ما يمكن أن يكون ذا معنى لنا.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="Johnson, M. (1987). The body in the mind: The bodily basis of meaning, imagination, and reason. University of Chicago Press. p. xix">(Johnson, 1987, p. xix)</span></footer>
+                </blockquote>
+
+                <blockquote>
+                    <p>المخطط التصويري هو نمط متكرر وديناميكي من تفاعلاتنا الإدراكية وبرامجنا الحركية، يمنح التماسك والبنية لخبرتنا. فمخطط الرأسية (VERTICALITY)، على سبيل المثال، ينبثق من نزوعنا لاستخدام توجه (فوق-تحت) في انتقاء البنى ذات المعنى.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="Johnson, M. (1987). p. xiv">(Johnson, 1987, p. xiv)</span></footer>
+                </blockquote>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="conceptModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 class="modal-title" id="modalTitle">اسم المفهوم</h3>
+            <p><strong>التعريف الأكاديمي:</strong> <span id="modalDef">...</span></p>
+            <p><strong>الامتداد النظري:</strong> <span id="modalDetails">...</span></p>
+            <div class="modal-case-study">
+                <strong>💡 حالة تطبيقية (سياق التوجيه المدرسي والسيكودراما):</strong>
+                <p id="modalCase" style="margin-bottom: 0;">...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة مكتبة Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Cairo' });
+
+        // تفاعلية القائمة الجانبية (ScrollSpy)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#toc-list a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // نظام النوافذ المنبثقة (Modals)
+            const conceptLinks = document.querySelectorAll('.concept-link');
+            const modal = document.getElementById('conceptModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDef = document.getElementById('modalDef');
+            const modalDetails = document.getElementById('modalDetails');
+            const modalCase = document.getElementById('modalCase');
+
+            conceptLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modalTitle.textContent = link.getAttribute('data-title');
+                    modalDef.textContent = link.getAttribute('data-def');
+                    modalDetails.textContent = link.getAttribute('data-details');
+                    modalCase.textContent = link.getAttribute('data-case');
+                    
+                    modal.classList.add('active');
+                });
+            });
+
+            // إغلاق النافذة
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // إغلاق عند النقر خارج المحتوى
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+// دعم شاشات اللمس (الهواتف) لظهور المراجع (Tooltips)
+            const citations = document.querySelectorAll('.citation-tooltip, .citation');
+            citations.forEach(citation => {
+                citation.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    citations.forEach(c => { if (c !== this) c.classList.remove('active-touch'); });
+                    this.classList.toggle('active-touch');
+                });
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.classList.contains('citation-tooltip') && !e.target.classList.contains('citation')) {
+                    citations.forEach(c => c.classList.remove('active-touch'));
+                }
+            });
+    </script>
+</body>
+</html>

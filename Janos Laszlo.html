@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحليل الأكاديمي الموجه: علم النفس السردي لجانوس لازلو</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #16a085;
+            --danger-color: #e74c3c;
+            --danger-bg: #fdf2f1;
+            --sidebar-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* تخطيط الصفحة والقائمة الجانبية */
+        .layout-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        aside.sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            border-left: 1px solid var(--border-color);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        aside.sidebar h3 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside.sidebar li {
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        aside.sidebar a:hover, aside.sidebar a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        main.content {
+            flex-grow: 1;
+            max-width: 800px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        /* رأس الصفحة الأكاديمي */
+        .academic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .academic-header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .academic-meta {
+            color: #555;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .target-group-badge {
+            background: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95em;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(22, 160, 133, 0.2);
+        }
+
+        /* البطاقة التعريفية للعالم */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-bio h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .profile-bio p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* الصندوق البارز - الأطروحة المركزية */
+        .hero-box {
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-box h2 {
+            color: white;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        /* الإشكال المعرفي */
+        .problem-card {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f2fcf9;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .problem-title svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--accent-color);
+        }
+
+        /* القوائم والحجج */
+        ol.arguments-list {
+            padding-right: 20px;
+        }
+        
+        ol.arguments-list li {
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        /* الفرضيات الضمنية */
+        details {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        summary {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* حدود الطرح */
+        .critiques-section {
+            background-color: var(--danger-bg);
+            border-right: 5px solid var(--danger-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .critiques-section h2 {
+            color: var(--danger-color);
+            margin-top: 0;
+        }
+
+        /* الهندسة التطبيقية (Timeline) */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-right: 30px;
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        /* الاقتباسات */
+        blockquote {
+            position: relative;
+            background: white;
+            margin: 40px 0;
+            padding: 30px 40px 30px 30px;
+            border-right: 5px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '\201D';
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 150px;
+            color: rgba(44, 62, 80, 0.05);
+            font-family: Georgia, serif;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        blockquote footer {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-family: 'Cairo', sans-serif;
+            font-style: normal;
+        }
+
+        /* التفاعلية: المفاهيم والإحالات */
+        .concept-link {
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: all 0.2s;
+        }
+
+        .concept-link:hover {
+            background-color: rgba(22, 160, 133, 0.1);
+        }
+
+        /* نظام الإحالات التفاعلية (Tooltips) مع التوثيق المباشر */
+        .citation {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            cursor: help;
+            border-bottom: 1px dotted #7f8c8d;
+            margin: 0 4px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .citation:hover::after {
+            content: attr(data-full-ref);
+            position: absolute;
+            bottom: 150%;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+
+        .citation:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 50%;
+            transform: translateX(50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--primary-color) transparent transparent transparent;
+            z-index: 10;
+        }
+
+        /* النافذة المنبثقة (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            font-family: 'Amiri', serif;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+        }
+
+        .modal-title {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .modal-case-study {
+            background: #f2fcf9;
+            border-right: 3px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            aside.sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main.content {
+                padding: 20px;
+            }
+        }
+/* ================= التجاوب مع شاشات الهاتف ================= */
+        @media (max-width: 992px) {
+            .page-container, .layout-wrapper { flex-direction: column; padding: 15px; }
+            .sidebar { width: 100%; position: static; margin-bottom: 20px; }
+            .main-content { max-width: 100%; width: 100%; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 1.05rem; }
+            .profile-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px;}
+            .hero-box { padding: 25px 15px; }
+            .hero-box h2 { font-size: 1.6rem; }
+            .problem-card, .arguments-list li { padding: 15px; }
+            .mermaid-container, .mermaid-wrapper { padding: 5px; overflow-x: scroll; }
+            .academic-quote { padding: 30px 15px 15px 15px; }
+            .academic-quote::before { font-size: 8rem; top: -15px; right: 10px; }
+            .modal-box, .modal-card { width: 95%; }
+            .citation-tooltip::after, .citation::after { width: 260px; left: 50%; transform: translateX(-50%); }
+            .citation-tooltip.active-touch::after, .citation-tooltip.active-touch::before, 
+            .citation.active-touch::after, .citation.active-touch::before { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <h3>محتويات البحث</h3>
+            <ul id="toc-list">
+                <li><a href="#intro">التمهيد والتعريف</a></li>
+                <li><a href="#thesis">الأطروحة المركزية</a></li>
+                <li><a href="#problem">الإشكال المعرفي</a></li>
+                <li><a href="#arguments">الحجج الأساسية</a></li>
+                <li><a href="#hypotheses">الفرضيات الضمنية</a></li>
+                <li><a href="#critiques">التحليل النقدي والحدود</a></li>
+                <li><a href="#map">الخريطة المفاهيمية</a></li>
+                <li><a href="#engineering">النمذجة الإجرائية التطبيقية</a></li>
+                <li><a href="#quotes">اقتباسات مرجعية</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <header class="academic-header">
+                <h1>التحليل الأكاديمي الموجه: توظيف "علم القصص" لجانوس لازلو في التوجيه وبناء الهوية</h1>
+                <div class="academic-meta">
+                    <strong>إعداد:</strong> الطالب الباحث عبد الله العميري<br>
+                    <strong>إشراف:</strong> ذ. حمزة شينبو<br>
+                    <strong>المؤسسة:</strong> كلية علوم التربية بالرباط، سلك الماستر في علم النفس التربوي
+                </div>
+                <div class="target-group-badge">
+                    التأطير النظري لبحث نيل دبلوم الماستر
+                </div>
+            </header>
+
+            <section id="intro">
+                <div class="profile-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/No_image_available.svg/120px-No_image_available.svg.png" alt="صورة تمثيلية للعالم جانوس لازلو">
+                    <div class="profile-bio">
+                        <h3>جانوس لازلو (János László)</h3>
+                        <p>عالم نفس مجري بارز، يعتبر من رواد <strong>علم النفس السردي الإمبريقي</strong>. في كتابه الأساسي "علم القصص: مقدمة في علم النفس السردي" (The Science of Stories)، قدم منهجية رائدة لتحويل السرديات والقصص من مجرد نصوص أدبية إلى بيانات قابلة للقياس العلمي لفهم آليات بناء <span class="concept-link" data-title="الهوية الاجتماعية (Social Identity)" data-def="الجزء من مفهوم الذات لدى الفرد والذي يستمد من معرفته بانتمائه إلى جماعة (أو جماعات) اجتماعية، مع القيمة العاطفية المرفقة بهذا الانتماء." data-details="يرى لازلو أن الهوية الاجتماعية لا تبنى في الفراغ، بل تتشكل عبر القصص المشتركة التي ترويها الجماعة عن نفسها." data-case="المتعلم في السياق المدرسي يبني هويته الاجتماعية والمهنية ليس فقط كفرد، بل من خلال سرديات الاندماج والقصص التي يتشاركها مع زملائه ومحيطه المدرسي.">الهوية الاجتماعية</span> والمهنية <span class="citation" data-full-ref="László, J. (2008). The Science of Stories: An Introduction to Narrative Psychology. Routledge.">(László, 2008)</span>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="thesis">
+                <div class="hero-box">
+                    <h2>الأطروحة المركزية: "العلم الإمبريقي للسرد"</h2>
+                    <p>يدافع لازلو عن أطروحة مفادها أن السرد (القصة) ليس مجرد وسيلة تعبيرية، بل هو وعاء يحمل "الحمض النووي" النفسي والاجتماعي للأفراد والجماعات. ويطرح فكرة أن التحليل النفسي يجب أن يتجاوز التفسير الذاتي الانطباعي إلى <span class="concept-link" data-title="التحليل الإمبريقي للسرد (Empirical Narrative Analysis)" data-def="منهجية علمية صارمة تقوم على تفكيك النص السردي إلى وحدات قابلة للقياس الكمي والكيفي لاستخراج الأنماط النفسية." data-details="يعتمد لازلو على برمجيات وأدوات ترميز لتحليل لغة القصة ومكوناتها (الفاعل، الزمن، المشاعر) لاستنتاج حالة الهوية." data-case="في ورشات التوجيه، لا نكتفي بالاستماع لقصة المتعلم عن مستقبله، بل نحلل منهجياً موقع 'الفاعلية' (Agency) في قصته: هل يرى نفسه بطلاً فاعلاً أم ضحية للظروف؟">التحليل الإمبريقي الصارم</span> <span class="citation" data-full-ref="László, J. (2008). The Science of Stories. p. 45">(László, 2008, p. 45)</span>.</p>
+                    <p>القصص التي يرويها الأطفال واليافعون عن ماضيهم وتوقعاتهم المستقبلية هي التي تهندس استقرارهم النفسي وهويتهم المهنية داخل محيطهم المدرسي والاجتماعي المندمج <span class="citation" data-full-ref="László, J. (2008). The Science of Stories. p. 82">(László, 2008, p. 82)</span>.</p>
+                </div>
+            </section>
+
+            <section id="problem">
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                        <h2 style="margin: 0;">الإشكال المعرفي النظري</h2>
+                    </div>
+                    <p>يواجه البحث السيكولوجي تحدياً منهجياً يتمثل في صعوبة قياس الظواهر المعقدة كالهوية والتكيف السوسيو-مهني. يتساءل لازلو:</p>
+                    <p style="font-weight: bold; font-size: 1.1em; text-align: center; color: var(--primary-color); margin: 20px 0;">
+                        كيف يمكننا تحويل "القصة المروية" (وهي ظاهرة أدبية نوعية) إلى "بيانات إمبريقية موضوعية" قادرة على كشف ديناميات اندماج المتعلم وتشكيل هويته ومساره المهني ضمن سياقه المدرسي والاجتماعي؟ <span class="citation" data-full-ref="László, J. (2008). p. 12">(László, 2008, p. 12)</span>
+                    </p>
+                </div>
+            </section>
+
+            <section id="arguments">
+                <h2>الحجج الأساسية التي استند إليها التحليل</h2>
+                <ol class="arguments-list">
+                    <li>
+                        <strong>حجة البناء الاجتماعي للمعنى:</strong> المعنى لا يتشكل داخل عقل الفرد المنعزل، بل يتم بناؤه والتفاوض عليه عبر السرديات الجماعية. المتعلم يتبنى <span class="concept-link" data-title="التمثلات الاجتماعية السردية" data-def="الصور الذهنية والأفكار النمطية التي يتداولها المجتمع عن أدوار ومهن معينة عبر الحكايات والخطاب اليومي." data-details="تؤثر بشكل مباشر على سقف طموحات المتعلم واختياراته." data-case="إذا كانت التمثلات السائدة تربط النجاح بمهن معينة فقط، سيعيد المتعلم إنتاج هذا السرد في طموحه.">تمثلات اجتماعية سردية</span> تحدد ما هو "ممكن" مهنياً بالنسبة له <span class="citation" data-full-ref="László, J. (2008). p. 55">(László, 2008, p. 55)</span>.
+                    </li>
+                    <li>
+                        <strong>حجة القابلية للقياس (الترميز النفسي):</strong> السرد يحتوي على مؤشرات لغوية (Perspective, Agency, Emotion) يمكن برمجتها وقياسها لمعرفة مدى صلابة الهوية وتوجهها نحو المستقبل <span class="citation" data-full-ref="László, J. (2008). p. 90">(László, 2008, p. 90)</span>.
+                    </li>
+                    <li>
+                        <strong>حجة الوظيفة التكيفية للسرد:</strong> الحكايات التي يؤلفها الأفراد عن أزماتهم وانتصاراتهم تعتبر أداة بيولوجية ونفسية لضمان <span class="concept-link" data-title="التكيف المهني (Vocational Adaptation)" data-def="قدرة الفرد على استيعاب التغييرات والانتقالات المهنية والتأقلم مع السياقات الجديدة بنجاح." data-details="يتم تسهيله عبر إعادة كتابة القصة الشخصية لتضمين التحديات كعتبات للنمو." data-case="مساعدة المراهق على سرد تجربة انتقاله من مرحلة دراسية لأخرى، أو تجاوزه لصعوبات التعلم كـ 'قصة بطل متجاوز للصعاب' تعزز مرونته المهنية المستقبلية.">التكيف</span> والاندماج الفعال <span class="citation" data-full-ref="László, J. (2008). p. 112">(László, 2008, p. 112)</span>.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="hypotheses">
+                <h2>الفرضيات الإبستمولوجية الضمنية</h2>
+                
+                <details>
+                    <summary>1. أسبقية السرد على الإدراك (Narrative pre-cedes Cognition)</summary>
+                    <p>يفترض لازلو، تقاطعاً مع ساربن وبرونر، أن العقل البشري منظم بطبيعته في هياكل سردية. نحن لا نعيش لنروي، بل نروي لنفهم كيف نعيش <span class="citation" data-full-ref="László, J. (2008). p. 34">(László, 2008, p. 34)</span>.</p>
+                </details>
+                
+                <details>
+                    <summary>2. الهوية كإنجاز خطابي (Identity as Discursive Achievement)</summary>
+                    <p>الهوية (المهنية أو الثقافية) ليست جوهراً ثابتاً يُكتشف، بل هي إنجاز خطابي يتم تأليفه باستمرار (Authoring) وتعديله استجابة للتفاعلات داخل المؤسسة التعليمية <span class="citation" data-full-ref="László, J. (2008). p. 67">(László, 2008, p. 67)</span>.</p>
+                </details>
+
+                <details>
+                    <summary>3. حتمية التجسيد السوسيو-ثقافي</summary>
+                    <p>السرد الفردي هو دائماً صدى لـ "السرديات الكبرى" (Macro-narratives) للمجتمع المستقبل. لا يمكن عزل طموح المتعلم عن القصص الثقافية التي يتشربها في مدرسته <span class="citation" data-full-ref="László, J. (2008). p. 101">(László, 2008, p. 101)</span>.</p>
+                </details>
+            </section>
+
+            <section id="critiques" class="critiques-section">
+                <h2>التحليل النقدي والحدود المعرفية (Critiques)</h2>
+                <p>رغم الرصانة الإمبريقية التي أضافها لازلو لعلم النفس السردي، تبرز بعض التحديات المنهجية عند تنزيل المقاربة بشكل عملي:</p>
+                <ul>
+                    <li><strong>حاجز اللغة والترجمة السردية:</strong> التحليل الإمبريقي الذي يطرحه لازلو يعتمد بشدة على دلالات الألفاظ والضمائر. بالنسبة لبعض المتعلمين، قد تعيق الحواجز اللغوية أو صعوبات التعبير الدقيق عن هويتهم، مما قد يؤدي لنتائج مضللة في التحليل <span class="citation" data-full-ref="استنتاج نقدي للباحث">(تحليل الباحث)</span>.</li>
+                    <li><strong>خطر الاختزالية (Reductionism):</strong> تحويل قصة حياة المتعلم وطموحه إلى مجرد "أكواد كمية" وإحصاءات قد يفرغ التجربة الإنسانية من شحنتها العاطفية المتجسدة التي لا يقرؤها الحاسوب. يجب دمج ذلك مع المعرفة المتجسدة (لعب الأدوار) لاستدراك هذا النقص <span class="citation" data-full-ref="تقاطع نقدي مع نظرية داماسيو">(استنتاج تركيبي)</span>.</li>
+                </ul>
+            </section>
+
+            <section id="map">
+                <h2>الخريطة المفاهيمية (نموذج لازلو الإمبريقي المدمج)</h2>
+                <p>توضح هذه الخطاطة كيفية انتقال التجربة من سرد تلقائي إلى بيانات إمبريقية، ثم إعادة استثمارها في التوجيه لبناء <span class="concept-link" data-title="الذات المهنية الممكنة" data-def="التصور المستقبلي الواضح الذي يبنيه المتعلم حول ما يمكن أن يصبح عليه مهنياً، وما يخاف أن يؤول إليه." data-details="هي محرك أساسي للدافعية والإنجاز الأكاديمي." data-case="تصور التلميذ لنفسه كطبيب في المستقبل يجعله أكثر التزاماً ببرنامج الدعم المدرسي في العلوم.">الذات المهنية الممكنة</span>.</p>
+                <div class="mermaid">
+                    graph TD;
+                        A[التجربة الحياتية للمتعلم] --> B(الإنتاج السردي / القصة);
+                        B --> C{التحليل الإمبريقي - لازلو};
+                        C -->|استخراج| D[مؤشرات الفاعلية Agency];
+                        C -->|استخراج| E[المنظور الزمني Time Perspective];
+                        D --> F[تشخيص الهوية السردية الحالية];
+                        E --> F;
+                        F --> G((التدخل الموجه: المحاكاة));
+                        G --> H[تأليف هوية مهنية مندمجة ومتكيفة];
+                        
+                        style C fill:#2c3e50,stroke:#333,stroke-width:2px,color:#fff
+                        style G fill:#16a085,stroke:#333,stroke-width:2px,color:#fff
+                        style H fill:#2980b9,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+            </section>
+
+            <section id="engineering">
+                <h2>الهندسة التطبيقية: مسار التدخل التربوي السردي</h2>
+                <p>خطوات عملية مستلهمة من منهج لازلو، مكيّفة مع البيئة المدرسية المغربية لدعم التوجيه وبناء الهوية المهنية للمتعلمين.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>1. جمع المادة السردية (Elicitation)</h4>
+                            <p>دعوة المتعلمين لكتابة أو حكي قصص قصيرة حول "أكبر تحدٍّ واجهوه منذ دخولهم المدرسة" أو "كيف يتخيلون يومهم الأول في وظيفة المستقبل". (يتم الاعتماد على التعبير التلقائي دون توجيه مسبق) <span class="citation" data-full-ref="László, J. (2008). p. 130">(László, 2008, p. 130)</span>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2. الترميز والتحليل الإمبريقي المبسط (Coding)</h4>
+                            <p>يقوم الموجه (بالاستعانة بأدوات لازلو) بتحليل القصص لتحديد موقع المتعلم: هل يستخدم بكثرة ضمير المفعول به (دلالة على الشعور بالعجز)؟ أم أفعال الحركة والمبادرة (دلالة على الفاعلية)؟ <span class="citation" data-full-ref="László, J. (2008). p. 145">(László, 2008, p. 145)</span>.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>3. إعادة التأليف (Re-authoring) عبر المحاكاة</h4>
+                            <p>بناءً على التشخيص، يتم إشراك المتعلمين في أنشطة "لعب أدوار" (Role-Play) مصممة خصيصاً لمعالجة الفجوات السردية. المتعلم الذي أظهر ضعفاً في "الفاعلية" يُكلف بدور قيادي مهني في اللعبة التربوية.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>4. الترسخ الهوياتي والاندماج (Consolidation)</h4>
+                            <p>من خلال تكرار السرديات الإيجابية المتجسدة، يتبنى المراهق "نصوصاً مهنية واجتماعية" جديدة، تعزز التكيف المدرسي وتقوي هويته كفاعل في مجتمعه <span class="citation" data-full-ref="László, J. (2008). p. 160">(László, 2008, p. 160)</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quotes">
+                <h2>اقتباسات مرجعية دالة</h2>
+                
+                <blockquote>
+                    <p>العلم الإمبريقي للقصص لا يلغي جمالية الأدب، بل يكشف لنا المعمار الخفي الذي يبني به الإنسان هويته وانتماءه الاجتماعي من خلال الكلمات.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="László, J. (2008). The Science of Stories.">(László, 2008)</span></footer>
+                </blockquote>
+
+                <blockquote>
+                    <p>الهوية الجماعية تتشكل في الذاكرة السردية المشتركة. نحن ننتمي إلى الجماعة بقدر ما نتشارك معها أدوات سرد الواقع وتفسيره.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="László, J. (2008). p. 77">(László, 2008, p. 77)</span></footer>
+                </blockquote>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="conceptModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 class="modal-title" id="modalTitle">اسم المفهوم</h3>
+            <p><strong>التعريف الأكاديمي:</strong> <span id="modalDef">...</span></p>
+            <p><strong>الامتداد النظري:</strong> <span id="modalDetails">...</span></p>
+            <div class="modal-case-study">
+                <strong>💡 حالة تطبيقية (سياق التوجيه والدمج المدرسي):</strong>
+                <p id="modalCase" style="margin-bottom: 0;">...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة مكتبة Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Cairo' });
+
+        // تفاعلية القائمة الجانبية (ScrollSpy)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#toc-list a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // تعديل بسيط لضمان دقة التحديد
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // نظام النوافذ المنبثقة (Modals)
+            const conceptLinks = document.querySelectorAll('.concept-link');
+            const modal = document.getElementById('conceptModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDef = document.getElementById('modalDef');
+            const modalDetails = document.getElementById('modalDetails');
+            const modalCase = document.getElementById('modalCase');
+
+            conceptLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // جلب البيانات من الخصائص Data attributes
+                    modalTitle.textContent = link.getAttribute('data-title');
+                    modalDef.textContent = link.getAttribute('data-def');
+                    modalDetails.textContent = link.getAttribute('data-details');
+                    modalCase.textContent = link.getAttribute('data-case');
+                    
+                    modal.classList.add('active');
+                });
+            });
+
+            // إغلاق النافذة
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // إغلاق عند النقر خارج المحتوى
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+// دعم شاشات اللمس (الهواتف) لظهور المراجع (Tooltips)
+            const citations = document.querySelectorAll('.citation-tooltip, .citation');
+            citations.forEach(citation => {
+                citation.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    citations.forEach(c => { if (c !== this) c.classList.remove('active-touch'); });
+                    this.classList.toggle('active-touch');
+                });
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.classList.contains('citation-tooltip') && !e.target.classList.contains('citation')) {
+                    citations.forEach(c => c.classList.remove('active-touch'));
+                }
+            });
+    </script>
+</body>
+</html>

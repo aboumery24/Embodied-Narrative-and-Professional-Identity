@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحليل الأكاديمي الموجه: العقل في السياق (ميسكيتا وزملائها)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #333333;
+            --primary-color: #1a4f66; /* أزرق داكن أكاديمي */
+            --accent-color: #d35400; /* برتقالي للتفاعل */
+            --danger-color: #c0392b;
+            --danger-bg: #fdf2f1;
+            --sidebar-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        /* تخطيط الصفحة والقائمة الجانبية */
+        .layout-container {
+            display: flex;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        aside.sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 20px;
+            border-left: 1px solid var(--border-color);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        aside.sidebar h3 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        aside.sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside.sidebar li {
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        aside.sidebar a:hover, aside.sidebar a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        main.content {
+            flex-grow: 1;
+            max-width: 800px; /* أقصى عرض لتوفير راحة بصرية */
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        /* رأس الصفحة الأكاديمي */
+        .academic-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .academic-header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .academic-meta {
+            color: #555;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .target-group-badge {
+            background: var(--accent-color);
+            color: white;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95em;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(211, 84, 0, 0.2);
+        }
+
+        /* البطاقة التعريفية للعلماء */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+            background-color: #ecf0f1;
+        }
+
+        .profile-bio h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .profile-bio p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* الصندوق البارز - الأطروحة المركزية */
+        .hero-box {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-box h2 {
+            color: white;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        /* الإشكال المعرفي */
+        .problem-card {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 25px;
+            background-color: #fffaf6;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .problem-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .problem-title svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        /* القوائم والحجج */
+        ol.arguments-list {
+            padding-right: 20px;
+        }
+        
+        ol.arguments-list li {
+            margin-bottom: 25px;
+            padding-right: 10px;
+        }
+
+        /* الفرضيات الضمنية */
+        details {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        summary {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary-color);
+            outline: none;
+            font-size: 1.1rem;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* حدود الطرح */
+        .critiques-section {
+            background-color: var(--danger-bg);
+            border-right: 5px solid var(--danger-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .critiques-section h2 {
+            color: var(--danger-color);
+            margin-top: 0;
+        }
+
+        /* الهندسة التطبيقية (Timeline) */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-right: 30px;
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        /* الاقتباسات */
+        blockquote {
+            position: relative;
+            background: white;
+            margin: 40px 0;
+            padding: 30px 40px 30px 30px;
+            border-right: 5px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-style: italic;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        blockquote::before {
+            content: '\201D';
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 150px;
+            color: rgba(26, 79, 102, 0.05);
+            font-family: Georgia, serif;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        blockquote footer {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-family: 'Cairo', sans-serif;
+            font-style: normal;
+        }
+
+        /* التفاعلية: المفاهيم والإحالات */
+        .concept-link {
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            border-bottom: 2px dashed var(--accent-color);
+            transition: all 0.2s;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        .concept-link:hover {
+            background-color: rgba(211, 84, 0, 0.1);
+        }
+
+        /* نظام الإحالات التفاعلية (Tooltips) */
+        .citation {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            cursor: help;
+            border-bottom: 1px dotted #7f8c8d;
+            margin: 0 4px;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .citation:hover::after {
+            content: attr(data-full-ref);
+            position: absolute;
+            bottom: 150%;
+            right: 50%;
+            transform: translateX(50%);
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            white-space: normal;
+            width: max-content;
+            max-width: 300px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            line-height: 1.5;
+            text-align: right;
+            pointer-events: none;
+        }
+
+        .citation:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 50%;
+            transform: translateX(50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #2c3e50 transparent transparent transparent;
+            z-index: 10;
+        }
+
+        /* النافذة المنبثقة (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            font-family: 'Amiri', serif;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--danger-color);
+        }
+
+        .modal-title {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .modal-case-study {
+            background: #fffaf6;
+            border-right: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .modal-case-study strong {
+            color: var(--accent-color);
+            font-family: 'Cairo', sans-serif;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* استجابة الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            aside.sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 15px;
+                white-space: nowrap;
+                overflow-x: auto;
+            }
+            aside.sidebar ul {
+                display: flex;
+                gap: 15px;
+            }
+            main.content {
+                padding: 20px;
+            }
+        }
+/* ================= التجاوب مع شاشات الهاتف ================= */
+        @media (max-width: 992px) {
+            .page-container, .layout-wrapper { flex-direction: column; padding: 15px; }
+            .sidebar { width: 100%; position: static; margin-bottom: 20px; }
+            .main-content { max-width: 100%; width: 100%; }
+        }
+        @media (max-width: 768px) {
+            body { font-size: 1.05rem; }
+            .profile-card { flex-direction: column; text-align: center; gap: 15px; padding: 20px;}
+            .hero-box { padding: 25px 15px; }
+            .hero-box h2 { font-size: 1.6rem; }
+            .problem-card, .arguments-list li { padding: 15px; }
+            .mermaid-container, .mermaid-wrapper { padding: 5px; overflow-x: scroll; }
+            .academic-quote { padding: 30px 15px 15px 15px; }
+            .academic-quote::before { font-size: 8rem; top: -15px; right: 10px; }
+            .modal-box, .modal-card { width: 95%; }
+            .citation-tooltip::after, .citation::after { width: 260px; left: 50%; transform: translateX(-50%); }
+            .citation-tooltip.active-touch::after, .citation-tooltip.active-touch::before, 
+            .citation.active-touch::after, .citation.active-touch::before { opacity: 1; visibility: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <h3>محتويات البحث</h3>
+            <ul id="toc-list">
+                <li><a href="#intro">التمهيد والتعريف</a></li>
+                <li><a href="#thesis">الأطروحة المركزية</a></li>
+                <li><a href="#problem">الإشكال المعرفي</a></li>
+                <li><a href="#arguments">الحجج الأساسية</a></li>
+                <li><a href="#hypotheses">الفرضيات الضمنية</a></li>
+                <li><a href="#critiques">التحليل النقدي والحدود</a></li>
+                <li><a href="#map">الخريطة المفاهيمية</a></li>
+                <li><a href="#engineering">الهندسة التطبيقية</a></li>
+                <li><a href="#quotes">اقتباسات مرجعية</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <header class="academic-header">
+                <h1>التأطير النظري: العقل المنغرس سياقياً وتأثيره في بناء الهوية المهنية</h1>
+                <div class="academic-meta">
+                    <strong>إعداد:</strong> الطالب الباحث عبد الله العميري<br>
+                    <strong>إشراف:</strong> ذ. حمزة شينبو<br>
+                    <strong>المؤسسة:</strong> سلك الماستر في علم النفس التربوي - كلية علوم التربية بالرباط (السنة الجامعية: 2025-2026)
+                </div>
+                <div class="target-group-badge">
+                    تأطير نظري بناءً على كتاب "The Mind in Context"
+                </div>
+            </header>
+
+            <section id="intro">
+                <div class="profile-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/No_image_available.svg/120px-No_image_available.svg.png" alt="صورة تمثيلية للمؤلفين ميسكيتا، باريت، وسميث">
+                    <div class="profile-bio">
+                        <h3>باتيا ميسكيتا، ليزا فيلدمان باريت، وإليوت ر. سميث</h3>
+                        <p>نخبة من علماء النفس والعلوم المعرفية. في كتابهم المرجعي المشترك "العقل في السياق" (The Mind in Context)، يقدمون نقداً جذرياً ومؤسساً للنزعة الجوهرانية في علم النفس الغربي <span class="citation" data-full-ref="Mesquita, B., Barrett, L. F., & Smith, E. R. (Eds.). (2010). The mind in context. The Guilford Press.">(Mesquita et al., 2010)</span>. تُشكل مقاربتهم الركيزة الأساسية لفهم كيف أن العمليات النفسية ليست كيانات حبيسة جمجمة الفرد، بل هي أنساق ديناميكية تتشكل لحظياً عبر تفاعل الفرد مع سياقه السوسيوثقافي والجسدي.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="thesis">
+                <div class="hero-box">
+                    <h2>الأطروحة المركزية: العقل كعملية ديناميكية ناشئة</h2>
+                    <p>يدافع المؤلفون عن أطروحة مركزية مفادها أن الظواهر النفسية (كالإدراك، الانفعال، والذاكرة، وبناء الهوية) ليست كيانات ثابتة ومعزولة داخل الفرد، بل هي عمليات ديناميكية ناشئة (Emergent Processes) عن التفاعل المستمر بين الفرد وسياقاته المتعددة (البيولوجية، الاجتماعية، والثقافية) <span class="citation" data-full-ref="Mesquita, B., Barrett, L. F., & Smith, E. R. (2010). Introduction. In The mind in context (p. 2). The Guilford Press.">(Mesquita et al., 2010, p. 2)</span>.</p>
+                    <p>هذا الطرح ينسف التصور الكلاسيكي الذي يعتبر العقل أرشيفاً لمعلومات ثابتة، ويؤكد على ما يسمى بـ <span class="concept-link" data-title="مبدأ السياق (The Context Principle)" data-def="المبدأ الذي يقر بأن العمليات العقلية والنفسية لا يمكن فهمها أو قياسها بمعزل عن الموقف اللحظي والبيئة التي تحدث فيها." data-details="السياق ليس مجرد خلفية مسرحية للحدث النفسي، بل هو مكون عضوي يشارك في صناعة هذا الحدث." data-case="في ورشات التوجيه المدرسي، لا نعتبر 'قلق المتعلم من المستقبل' سمة ثابتة في شخصيته، بل هو انفعال ناشئ عن سياق التقييم المدرسي والضغوط الأسرية. بتغيير السياق عبر السيكودراما، يتغير الانفعال.">مبدأ السياق</span> كمنطلق وحيد لفهم السلوك، حيث يتمدد العقل خارج الحدود البيولوجية ليتشابك مع العالم.</p>
+                </div>
+            </section>
+
+            <section id="problem">
+                <div class="problem-card">
+                    <div class="problem-title">
+                        <svg viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+                        <h2 style="margin: 0;">الإشكال المعرفي النظري: وهم الخطأ الجوهراني</h2>
+                    </div>
+                    <p>يحاول الكتاب حل إشكال إبستمولوجي عميق في العلوم المعرفية والنفسية: كيف يمكن التوفيق بين الحاجة المنهجية لتصنيف الظواهر النفسية (مثل "الانفعال"، "الميول المهنية"، "الشخصية") وبين الأدلة التجريبية المتزايدة على أن هذه الظواهر تتغير جذرياً بتغير السياق؟</p>
+                    <p>يتصدى المؤلفون لما يسمونه <span class="concept-link" data-title="النزعة الجوهرانية (Essentialism)" data-def="الاعتقاد الخاطئ بأن الظواهر النفسية (كالهوية أو الذكاء) تمتلك جوهراً داخلياً ثابتاً ومستقلاً يحدد طبيعتها في كل الظروف." data-details="الخطأ الجوهراني يدفع الباحثين للبحث عن 'ماهية' الشيء متجاهلين أنه لا يوجد إلا متجسداً في سياق محدد." data-case="افتراض أن المراهق المغربي يمتلك 'ميولاً علمية' ثابتة ومكتملة تنتظر اكتشافها عبر رائز ورقي هو خطأ جوهراني. الميول تُبنى وتتغير استجابة لسياق التعلم والتوجيه النشط.">الخطأ الجوهراني (Essentialism Error)</span>، متسائلين بوضوح:</p>
+                    <p style="font-weight: bold; font-size: 1.1em; text-align: center; color: var(--primary-color); margin: 20px 0;">
+                        إذا كانت الهوية والميول ليست جواهر ثابتة داخل عقل الفرد، فكيف نستمر في قياسها بأدوات منعزلة عن سياق الممارسة الفعلية والتفاعل الاجتماعي؟ <span class="citation" data-full-ref="Mesquita et al. (2010). The mind in context. p. 3">(Mesquita et al., 2010, p. 3)</span>
+                    </p>
+                </div>
+            </section>
+
+            <section id="arguments">
+                <h2>الحجج الأساسية التي استند إليها التحليل</h2>
+                <ol class="arguments-list">
+                    <li>
+                        <strong>الحجة المنطقية-المفهومية:</strong> لا يوجد خط فاصل واضح وحاسم بين "الكائن الحي" و"البيئة". العمليات النفسية تمتد خارج الدماغ لتشمل الجسد والبيئة المادية والاجتماعية. التفكير هو فعل يحدث <em>مع</em> العالم وليس <em>في</em> الرأس فقط.
+                        <br><small style="color: #666;">مثال: لا يمكن التفكير في قيادة دراجة دون وجود دراجة (أو محاكاتها جسدياً).</small>
+                    </li>
+                    <li>
+                        <strong>الحجة التجريبية (العصبية والمعرفية):</strong> تُظهر أبحاث الدماغ التنبؤي أن الدماغ لا يعالج المعلومات بشكل سلبي، بل يستخدم "السياق" بشكل استباقي لتوقع المدخلات الحسية <span class="citation" data-full-ref="Mesquita, B., Barrett, L. F., & Smith, E. R. (2010). p. 5">(Mesquita et al., 2010, p. 5)</span>.
+                    </li>
+                    <li>
+                        <strong>الحجة السوسيو-ثقافية:</strong> الثقافات ليست مجرد "عوامل مؤثرة" خارجية، بل هي مكونات تأسيسية للعمليات النفسية. الطريقة التي يدرك بها المراهق ذاته المهنية تُهندس مسبقاً عبر الممارسات السردية والاجتماعية لمجتمعه.
+                    </li>
+                </ol>
+            </section>
+
+            <section id="hypotheses">
+                <h2>الفرضيات الإبستمولوجية الضمنية</h2>
+                
+                <details>
+                    <summary>1. اللا-ثنائية الراديكالية (Non-Dualism)</summary>
+                    <p>يفترض الطرح رفضاً قاطعاً لثنائية ديكارت (العقل/الجسد) وثنائية (الفرد/المجتمع). العقل، الجسد، والبيئة يشكلون نظاماً واحداً مندمجاً (System) لا يمكن تجزئته دون فقدان المعنى الحقيقي للسلوك <span class="citation" data-full-ref="Mesquita et al. (2010). p. 7">(Mesquita et al., 2010, p. 7)</span>.</p>
+                </details>
+                
+                <details>
+                    <summary>2. أسبقية الفعل والسياق على التجريد</summary>
+                    <p>يتبنى الكتاب فرضية أن المعرفة هي أولاً وقبل كل شيء "معرفة كيفية" متجسدة في الفعل (Situated Knowledge)، وليست مجرد تمثيلات مجردة. نحن نفعل أولاً لكي ندرك لاحقاً <span class="citation" data-full-ref="Mesquita et al. (2010).">(Mesquita et al., 2010)</span>.</p>
+                </details>
+
+                <details>
+                    <summary>3. مرونة الذات واستمرار البناء</summary>
+                    <p>الذات ليست جوهراً متصلباً، بل هي "حالة عابرة" تتشكل ويُعاد تشكيلها باستمرار في كل موقف تفاعلي. هذا يبرر قدرة التدخلات التربوية (كالمسرح) على إحداث تغييرات جوهرية في مفهوم الذات.</p>
+                </details>
+            </section>
+
+            <section id="critiques" class="critiques-section">
+                <h2>التحليل النقدي: مأزق النسبية وحدود الطرح</h2>
+                <p>بالرغم من القوة التفسيرية لنموذج "العقل في السياق"، فإنه يثير إشكالات منهجية عند محاولة استثماره تطبيقياً في التوجيه المهني:</p>
+                <ul>
+                    <li>
+                        <strong>مأزق النسبية المفرطة:</strong> إذا كانت الظواهر النفسية والهوية تتغير بتغير السياق بشكل جذري، فكيف يمكننا الحديث عن "هوية مهنية مستقرة" يمكن التنبؤ بها وتوجيهها؟ أين يوجد استقرار الذات وسط هذا التدفق السياقي؟ <span class="citation" data-full-ref="تحليل استنباطي للباحث">(تحليل نقدي)</span>.
+                    </li>
+                    <li>
+                        <strong>صعوبة العزل والقياس:</strong> من الناحية المنهجية، الالتزام الصارم بمبدأ السياق يجعل من شبه المستحيل عزل متغير واحد لقياسه في المختبر (أو في الاستبيان)، مما يتطلب أدوات بحثية معقدة وشديدة الحساسية كتحليل التفاعلات الدقيقة أثناء لعب الأدوار.
+                    </li>
+                    <li>
+                        <strong>التدخل المنهجي للباحث (الحل):</strong> لتجاوز مأزق النسبية، ندمج هذا الطرح مع مفهوم <span class="concept-link" data-title="نضح الهوية (Identity Bleed)" data-def="آلية نفسية ومعرفية تتسرب من خلالها التغيرات السلوكية والانفعالية التي يختبرها الفرد داخل سياق المحاكاة (المسرح) لتستقر في بنية الهوية الواقعية." data-details="هذا المفهوم يفسر كيف تتحول التجربة الموقعية العابرة إلى استقرار هوياتي دائم." data-case="عندما يؤدي المراهق دور القيادة بنجاح في السيكودراما، فإن شعور الكفاءة لا ينتهي بانتهاء المسرحية، بل 'ينضح' ليستقر في ذاته الواقعية، مقدماً حلاً لمشكلة استقرار الهوية.">نضح الهوية</span>. السياق (لعب الأدوار) يغير التجربة لحظياً، ولكن "نضح الهوية" يضمن أن هذه التغيرات تترسب كاستقرار نسبي في السردية المهنية للمتعلم.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="map">
+                <h2>الخريطة المفاهيمية: من العقل المنغرس إلى نضح الهوية</h2>
+                <p>توضح الخطاطة كيف يتم توظيف مبدأ "العقل في السياق" لبناء الهوية عبر الإدراك الموقعي.</p>
+                <div class="mermaid">
+                    graph TD;
+                        A[الخطأ الجوهراني المرفوض] -->|نقد إبستمولوجي| B(مبدأ السياق Context Principle);
+                        B --> C{العقل المنغرس سياقياً Mind-in-Context};
+                        C -->|يستوجب| D[الإدراك الموقعي / المتجسد Situated Cognition];
+                        D --> E[تدخل المحاكاة: لعب الأدوار Role Play];
+                        E --> F(التفاعل اللحظي وبناء المعنى);
+                        F --> G((ميكانيزم نضح الهوية Identity Bleed));
+                        G --> H[هوية مهنية مرنة ومستقرة نسبياً];
+                        
+                        style C fill:#1a4f66,stroke:#333,stroke-width:2px,color:#fff
+                        style G fill:#d35400,stroke:#333,stroke-width:2px,color:#fff
+                        style H fill:#27ae60,stroke:#333,stroke-width:2px,color:#fff
+                </div>
+            </section>
+
+            <section id="engineering">
+                <h2>الهندسة التطبيقية: صناعة السياق المهني عبر المحاكاة</h2>
+                <p>كيف نستثمر فكرة "العقل في السياق" إجرائياً لدعم المراهق المغربي في بناء هويته المهنية؟ <span class="citation" data-full-ref="إسقاط إجرائي لنموذج ميسكيتا">(تطبيق بحثي)</span></p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>1. خلخلة السياق النمطي</h4>
+                            <p>إخراج التلميذ من السياق المدرسي التلقيني الكلاسيكي (حيث يكون مستقبلاً سلبياً) ووضعه في سياق ديناميكي تفاعلي (ركح السيكودراما). هذا يغير فوراً طريقة عمل عقله ومعالجته للمعلومات المهنية.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2. تنشيط الإدراك الموقعي (Situated Cognition)</h4>
+                            <p>يُدفع المتعلم لاستخدام أدوات، حركات، وخطابات تحاكي مهنة معينة (مثلاً: طبيب في قسم المستعجلات). هنا، <span class="concept-link" data-title="العقل المنغرس سياقياً (Mind-in-Context)" data-def="الرؤية التي تعتبر أن العمليات الذهنية لا تنفصل عن السياق الآني الذي تُمارس فيه." data-details="المعرفة تتشكل عبر الاستخدام الفعلي للأدوات والتفاعل مع الآخرين." data-case="إدراك المراهق لمهنة التمريض وهو جالس على مقعده يختلف جذرياً عن إدراكه لها وهو يتفاعل جسدياً مع حالة طوارئ محاكية.">العقل المنغرس سياقياً</span> لا يسترجع معلومات عن الطب، بل "يمارس" الطب إدراكياً وجسدياً.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>3. صناعة المعنى التشاركي</h4>
+                            <p>يتفاعل المراهق مع أقرانه على الركح. يتم التفاوض على المعاني المهنية اجتماعياً وثقافياً (باستخدام الدارجة، والتمثلات المجتمعية المغربية عن المهن)، مما يمنح التجربة شرعية سوسيو-ثقافية تفتقر إليها الاختبارات الورقية المستوردة.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>4. استقرار السردية (نضح الهوية)</h4>
+                            <p>تنتقل المشاعر والكفاءات التي تولدت في السياق التخيلي إلى البنية العميقة للمتعلم، مما يسهم في تطوير سردية مهنية متماسكة ترتكز على التجربة المتجسدة وليس التجريد العقلي.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quotes">
+                <h2>اقتباسات مرجعية دالة</h2>
+                
+                <blockquote>
+                    <p>إن الظواهر النفسية كالإدراك والانفعال ليست كيانات ثابتة ومعزولة داخل الفرد، بل هي عمليات ديناميكية ناشئة عن التفاعل المستمر بين الفرد وسياقاته المتعددة.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="Mesquita, B., Barrett, L. F., & Smith, E. R. (2010). The mind in context. The Guilford Press. p. 2">(Mesquita et al., 2010, p. 2)</span></footer>
+                </blockquote>
+
+                <blockquote>
+                    <p>الخطأ الجوهراني يدفع الباحثين إلى البحث عن "جوهر" ثابت لكل ظاهرة، متجاهلين أن هذه الظواهر لا توجد إلا متجسدة في سياقات محددة.</p>
+                    <footer>&mdash; <span class="citation" data-full-ref="Mesquita, B., Barrett, L. F., & Smith, E. R. (2010). p. 3">(Mesquita et al., 2010, p. 3)</span></footer>
+                </blockquote>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="conceptModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 class="modal-title" id="modalTitle">اسم المفهوم</h3>
+            <p><strong>التعريف الأكاديمي:</strong> <span id="modalDef">...</span></p>
+            <p><strong>الامتداد النظري:</strong> <span id="modalDetails">...</span></p>
+            <div class="modal-case-study">
+                <strong>💡 حالة تطبيقية (سياق التوجيه المدرسي والممارسة السيكولوجية بالمغرب):</strong>
+                <p id="modalCase" style="margin-bottom: 0;">...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تهيئة مكتبة Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'default', fontFamily: 'Cairo' });
+
+        // تفاعلية القائمة الجانبية (ScrollSpy)
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#toc-list a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // نظام النوافذ المنبثقة (Modals)
+            const conceptLinks = document.querySelectorAll('.concept-link');
+            const modal = document.getElementById('conceptModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDef = document.getElementById('modalDef');
+            const modalDetails = document.getElementById('modalDetails');
+            const modalCase = document.getElementById('modalCase');
+
+            conceptLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // جلب البيانات من الخصائص Data attributes
+                    modalTitle.textContent = link.getAttribute('data-title');
+                    modalDef.textContent = link.getAttribute('data-def');
+                    modalDetails.textContent = link.getAttribute('data-details');
+                    modalCase.textContent = link.getAttribute('data-case');
+                    
+                    modal.classList.add('active');
+                });
+            });
+
+            // إغلاق النافذة
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // إغلاق عند النقر خارج المحتوى
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+// دعم شاشات اللمس (الهواتف) لظهور المراجع (Tooltips)
+            const citations = document.querySelectorAll('.citation-tooltip, .citation');
+            citations.forEach(citation => {
+                citation.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    citations.forEach(c => { if (c !== this) c.classList.remove('active-touch'); });
+                    this.classList.toggle('active-touch');
+                });
+            });
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.classList.contains('citation-tooltip') && !e.target.classList.contains('citation')) {
+                    citations.forEach(c => c.classList.remove('active-touch'));
+                }
+            });
+    </script>
+</body>
+</html>
