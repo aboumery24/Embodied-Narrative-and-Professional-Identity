@@ -19,7 +19,7 @@
             --axis3-color: #8e44ad; 
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
             --shadow-lg: 0 10px 20px rgba(0,0,0,0.08);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.3s ease;
         }
 
         html { scroll-behavior: smooth; }
@@ -35,13 +35,12 @@
         header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 40px 20px 60px 20px; text-align: center; }
         header h1 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.4; }
         header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto 25px auto; opacity: 0.9; }
+        
         .top-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn-nav { background: rgba(255,255,255,0.1); color: white; padding: 10px 20px; border-radius: 30px; font-family: 'Tajawal', sans-serif; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: var(--transition); text-decoration: none; font-size: 1rem;}
+        .btn-nav { background: rgba(255,255,255,0.1); color: white; padding: 10px 20px; border-radius: 30px; font-family: 'Tajawal', sans-serif; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: var(--transition); font-size: 1rem; text-decoration: none; }
         .btn-nav:hover { background: white; color: var(--primary); transform: translateY(-2px); }
         .btn-glossary { background: var(--secondary); border: none; font-weight: 700; box-shadow: 0 4px 10px rgba(229, 142, 38, 0.3); }
         .btn-glossary:hover { background: #d35400; color: white; box-shadow: 0 6px 15px rgba(229, 142, 38, 0.5); }
-        
-        /* زر الباحث */
         .btn-researcher { background: #16a085; border: none; font-weight: 700; box-shadow: 0 4px 10px rgba(22, 160, 133, 0.3); }
         .btn-researcher:hover { background: #1abc9c; color: white; }
 
@@ -56,6 +55,7 @@
         .axis-header h2 { margin: 0; font-size: 1.6rem; color: var(--primary); }
         .axis-badge { padding: 5px 15px; border-radius: 20px; color: white; font-size: 0.9rem; font-weight: bold; }
         .bg-axis1 { background-color: var(--axis1-color); } .bg-axis2 { background-color: var(--axis2-color); } .bg-axis3 { background-color: var(--axis3-color); }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
         .card { background: var(--card-bg); border-radius: 15px; padding: 25px; box-shadow: var(--shadow-sm); cursor: pointer; position: relative; border: 1px solid #edf2f7; transition: var(--transition); overflow: hidden; }
         .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
@@ -64,11 +64,22 @@
         .card.c-axis1::before { background-color: var(--axis1-color); } .card.c-axis2::before { background-color: var(--axis2-color); } .card.c-axis3::before { background-color: var(--axis3-color); }
         .card h3 { margin: 0 0 15px 0; color: var(--primary); font-size: 1.3rem; }
         .author-tag { display: inline-block; background: #f1f2f6; color: var(--text-muted); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-family: 'Tajawal', sans-serif; margin-bottom: 15px; font-weight: bold; }
-        .card p { color: var(--text-muted); font-size: 1rem; margin: 0; }
+        .card p { color: var(--text-muted); font-size: 1rem; margin: 0; pointer-events: none; } /* يمنع تداخل النقر على النص داخل البطاقة */
 
-        /* ================= Modals (Viewer & Researcher) ================= */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(5px); }
-        .modal-overlay.active { opacity: 1; }
+        /* ================= Modals (الهندسة الجديدة المستقرة) ================= */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(0,0,0,0.8); 
+            z-index: 9999; 
+            display: flex; align-items: center; justify-content: center; 
+            opacity: 0; visibility: hidden; pointer-events: none; 
+            transition: all 0.3s ease; 
+        }
+        .modal-overlay.active { 
+            opacity: 1; visibility: visible; pointer-events: auto; 
+        }
+
+        /* 1. نافذة القارئ */
         .viewer-container { width: 95%; height: 95%; background: white; border-radius: 15px; display: flex; flex-direction: column; transform: translateY(20px); transition: transform 0.3s ease; overflow: hidden; }
         .modal-overlay.active .viewer-container { transform: translateY(0); }
         .viewer-header { background: #f8f9fa; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e9ecef; }
@@ -78,7 +89,7 @@
         .btn-close { background: #e74c3c; color: white; } .btn-close:hover { background: #c0392b; }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* نافذة الباحث (Researcher Modal) */
+        /* 2. نافذة الباحث */
         .researcher-box { background: white; width: 90%; max-width: 450px; border-radius: 15px; text-align: center; padding: 40px 30px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; }
         .modal-overlay.active .researcher-box { transform: translateY(0); }
         .researcher-close { position: absolute; top: 15px; left: 20px; background: none; border: none; color: #aaa; font-size: 2rem; cursor: pointer; transition: 0.2s; line-height: 1; }
@@ -89,10 +100,9 @@
         .researcher-box h4 { margin: 5px 0 15px 0; color: var(--secondary); font-size: 1.1rem; }
         .researcher-box p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; text-align: justify; }
 
-        /* ================= Glossary Drawer ================= */
-        .glossary-overlay { display: none; position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1500; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(4px); }
-        .glossary-drawer { position: absolute; top: 0; right: -500px; width: 100%; max-width: 500px; height: 100%; background: white; display: flex; flex-direction: column; transition: right 0.4s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.2); }
-        .glossary-overlay.active { opacity: 1; } .glossary-overlay.active .glossary-drawer { right: 0; }
+        /* 3. نافذة المعجم */
+        .glossary-drawer { position: absolute; top: 0; right: -100%; width: 100%; max-width: 450px; height: 100%; background: white; display: flex; flex-direction: column; transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: -5px 0 20px rgba(0,0,0,0.2); }
+        .modal-overlay.active .glossary-drawer { right: 0; }
         .glossary-header { background: var(--primary); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
         .glossary-header h2 { margin: 0; font-size: 1.5rem; }
         .close-glossary { background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; transition: 0.2s; } .close-glossary:hover { transform: scale(1.1); color: var(--secondary); }
@@ -106,14 +116,14 @@
         .accordion-content p { padding: 15px; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
         .term-author { display: inline-block; margin-top: 10px; font-weight: bold; color: var(--primary); background: #eef2f5; padding: 3px 10px; border-radius: 15px; font-size: 0.85rem; }
 
-        /* ================= التجاوب مع شاشات الهاتف للمكتبة (Mobile-First CSS) ================= */
+        /* ================= التجاوب مع الهاتف (Mobile-First) ================= */
         @media (max-width: 768px) {
-            header { padding: 20px 15px 40px 15px; }
-            header h1 { font-size: 1.6rem; }
+            header { padding: 20px 15px 30px 15px; }
+            header h1 { font-size: 1.5rem; }
             header p { font-size: 1rem; }
             .top-nav { flex-direction: column; gap: 10px; }
             .btn-nav { width: 100%; text-align: center; box-sizing: border-box;}
-            .search-wrapper { margin-top: -20px; padding: 0 15px; }
+            .search-wrapper { margin-top: -15px; padding: 0 15px; }
             .grid { grid-template-columns: 1fr; gap: 15px; }
             .axis-header { flex-direction: column; align-items: flex-start; gap: 5px; }
             .axis-header h2 { font-size: 1.4rem; }
@@ -170,7 +180,7 @@
         </div>
     </div>
 
-    <div class="viewer-overlay" id="viewerOverlay">
+    <div class="modal-overlay" id="viewerOverlay">
         <div class="viewer-container">
             <div class="viewer-header">
                 <h3 class="viewer-title" id="viewerTitle">اسم النظرية</h3>
@@ -184,7 +194,7 @@
     </div>
 
     <div class="modal-overlay" id="researcherModal">
-        <div class="modal-box researcher-box">
+        <div class="researcher-box">
             <button class="researcher-close" onclick="closeResearcherModal(event)">&times;</button>
             <div class="researcher-content">
                 <div class="researcher-img">
@@ -197,18 +207,18 @@
         </div>
     </div>
 
-    <div class="glossary-overlay" id="glossaryOverlay">
+    <div class="modal-overlay" id="glossaryOverlay">
         <div class="glossary-drawer">
             <div class="glossary-header">
                 <h2 class="sans-font">المعجم الإبستمولوجي</h2>
-                <button class="close-glossary" onclick="closeGlossary(event)">×</button>
+                <button class="close-glossary" onclick="closeGlossary(event)">&times;</button>
             </div>
             <div class="glossary-body" id="glossaryBody"></div>
         </div>
     </div>
 
     <script>
-        // 1. نظام الفلترة
+        // دالة الفلترة (تعمل مباشرة بدون أخطاء)
         function filterCards() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('card');
@@ -218,50 +228,42 @@
             }
         }
 
-        // 2. نظام التحكم بالملفات (القارئ)
+        // ================= فتح وإغلاق النوافذ (بطريقة آمنة 100%) =================
         function openViewer(fileName, title, e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
+            if(e) e.preventDefault();
             document.getElementById('viewerTitle').innerText = title;
             document.getElementById('fileIframe').src = fileName; 
-            var overlay = document.getElementById('viewerOverlay');
-            overlay.style.display = "flex";
-            setTimeout(() => { overlay.classList.add('active'); }, 20);
+            document.getElementById('viewerOverlay').classList.add('active');
             document.body.style.overflow = "hidden";
         }
 
         function closeViewer(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
-            var overlay = document.getElementById('viewerOverlay');
-            overlay.classList.remove('active');
-            setTimeout(() => { overlay.style.display = "none"; document.getElementById('fileIframe').src = ""; }, 300); 
+            if(e) e.preventDefault();
+            document.getElementById('viewerOverlay').classList.remove('active');
+            setTimeout(() => { document.getElementById('fileIframe').src = ""; }, 300); 
             document.body.style.overflow = "auto";
         }
 
         function printFile(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
+            if(e) e.preventDefault();
             const frame = document.getElementById('fileIframe');
             frame.contentWindow.focus(); 
             frame.contentWindow.print(); 
         }
 
-        // 3. نظام نافذة الباحث
         function openResearcherModal(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
-            var modal = document.getElementById('researcherModal');
-            modal.style.display = "flex";
-            setTimeout(() => { modal.classList.add('active'); }, 20);
+            if(e) e.preventDefault();
+            document.getElementById('researcherModal').classList.add('active');
             document.body.style.overflow = "hidden";
         }
 
         function closeResearcherModal(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
-            var modal = document.getElementById('researcherModal');
-            modal.classList.remove('active');
-            setTimeout(() => { modal.style.display = "none"; }, 300);
+            if(e) e.preventDefault();
+            document.getElementById('researcherModal').classList.remove('active');
             document.body.style.overflow = "auto";
         }
 
-        // 4. قاعدة بيانات المعجم الإبستمولوجي
+        // ================= المعجم الإبستمولوجي =================
         const glossaryData = [
             { letter: "أ", terms: [
                 { term: 'أخطاء التنبؤ المهني', en: 'Vocational Prediction Error', def: 'الفجوة المعرفية بين توقعات التلميذ المسبقة والخبرة الحسية الفعلية على الركح؛ وهي المحرك الأساسي للتعلم وإعادة التوجيه.', author: 'Hohwy' },
@@ -384,20 +386,16 @@
         }
 
         function openGlossary(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
+            if(e) e.preventDefault();
             var body = document.getElementById('glossaryBody');
             if(body.innerHTML.trim() === '') renderGlossary();
-            var overlay = document.getElementById('glossaryOverlay');
-            overlay.style.display = "block"; 
-            setTimeout(() => { overlay.classList.add('active'); }, 20);
+            document.getElementById('glossaryOverlay').classList.add('active');
             document.body.style.overflow = "hidden";
         }
 
         function closeGlossary(e) {
-            if(e) { e.preventDefault(); e.stopPropagation(); }
-            var overlay = document.getElementById('glossaryOverlay');
-            overlay.classList.remove('active');
-            setTimeout(() => { overlay.style.display = "none"; }, 400);
+            if(e) e.preventDefault();
+            document.getElementById('glossaryOverlay').classList.remove('active');
             document.body.style.overflow = "auto";
         }
 
@@ -408,15 +406,17 @@
             else content.style.maxHeight = content.scrollHeight + "px";
         }
 
-        // 5. الإغلاق الآمن عند النقر خارج النوافذ
+        // إغلاق أي نافذة عند النقر على الخلفية الرمادية (المساحة الفارغة)
         window.addEventListener('click', function(event) {
-            var viewer = document.getElementById('viewerOverlay');
-            var glossary = document.getElementById('glossaryOverlay');
-            var researcher = document.getElementById('researcherModal');
-
-            if (event.target === viewer) closeViewer();
-            if (event.target === glossary) closeGlossary();
-            if (event.target === researcher) closeResearcherModal();
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = "auto";
+                
+                // تفريغ القارئ إذا كانت النافذة المغلقة هي نافذة القارئ
+                if(event.target.id === 'viewerOverlay') {
+                    setTimeout(() => { document.getElementById('fileIframe').src = ""; }, 300);
+                }
+            }
         });
 
     </script>
